@@ -1,0 +1,81 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.22.1'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test && pnpm build
+      - name: Build actual runtime image
+        run: docker build --build-arg BUILD_VERSION="$GITHUB_SHA" -t cat-coup:ci .
+      - name: Test container transports
+        env:
+          BASE_URL: http://127.0.0.1:3101
+          EXPECTED_VERSION: ${{ github.sha }}
+        run: |
+          docker run -d --name cat-coup-ci -p 127.0.0.1:3101:3001 cat-coup:ci
+          for i in {1..30}; do curl -fsS "$BASE_URL/health" && break; sleep 1; done
+          node scripts/smoke.mjs
+      - name: Browser walkthrough (Linux Chromium)
+        env:
+          BASE_URL: http://127.0.0.1:3101
+        run: |
+          npm install --prefix /tmp/cat-coup-browser playwright@1.56.1
+          /tmp/cat-coup-browser/node_modules/.bin/playwright install --with-deps chromium
+          PLAYWRIGHT_MODULE=/tmp/cat-coup-browser/node_modules/playwright node tests/browser-check.mjs
+      - name: Export the tested image
+        if: github.event_name == 'push'
+        run: docker save cat-coup:ci -o /tmp/cat-coup-image.tar
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: github.event_name == 'push'
+        with:
+          name: tested-image
+          path: /tmp/cat-coup-image.tar
+          retention-days: 7
+      - name: Cleanup
+        if: always()
+        run: docker rm -f cat-coup-ci || true
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      packages: write
+    steps:
+      - name: Download exact tested image
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name tested-image --dir /tmp/tested
+      - name: Publish tested image and candidate metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          docker load -i /tmp/tested/cat-coup-image.tar
+          echo "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker tag cat-coup:ci "$image:sha-$GITHUB_SHA"
+          docker push "$image:sha-$GITHUB_SHA"
+          digest=$(docker inspect --format '{{index .RepoDigests 0}}' "$image:sha-$GITHUB_SHA")
+          jq -n --arg image "$digest" --arg commit "$GITHUB_SHA" --arg run "$GITHUB_RUN_ID" '{schema:1,image:$image,commit:$commit,ciRun:$run}' > candidate.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: deployment-candidate
+          path: candidate.json
+          retention-days: 30

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+deployment-state/
+.env.*
+.env
+*.log
+.impeccable/review/
+.impeccable/config.json
+.impeccable/questions/
+.impeccable/direction-options.json

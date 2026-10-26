@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T08:42:46.883Z",
+  "title": "Design System: Cat Coup",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Amber Gold",
+        "tonalRamp": [
+          "oklch(15% 0.13 75)",
+          "oklch(26% 0.13 75)",
+          "oklch(38% 0.13 75)",
+          "oklch(49% 0.13 75)",
+          "oklch(61% 0.13 75)",
+          "oklch(72% 0.13 75)",
+          "oklch(84% 0.13 75)",
+          "oklch(95% 0.13 75)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Light Amber",
+        "tonalRamp": [
+          "oklch(15% 0.11 75)",
+          "oklch(26% 0.11 75)",
+          "oklch(38% 0.11 75)",
+          "oklch(49% 0.11 75)",
+          "oklch(61% 0.11 75)",
+          "oklch(72% 0.11 75)",
+          "oklch(84% 0.11 75)",
+          "oklch(95% 0.11 75)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Soft Sage",
+        "tonalRamp": [
+          "oklch(15% 0.04 166)",
+          "oklch(26% 0.04 166)",
+          "oklch(38% 0.04 166)",
+          "oklch(49% 0.04 166)",
+          "oklch(61% 0.04 166)",
+          "oklch(72% 0.04 166)",
+          "oklch(84% 0.04 166)",
+          "oklch(95% 0.04 166)"
+        ]
+      },
+      "secondary-hover": {
+        "role": "secondary",
+        "displayName": "Pale Sage",
+        "tonalRamp": [
+          "oklch(15% 0.03 166)",
+          "oklch(26% 0.03 166)",
+          "oklch(38% 0.03 166)",
+          "oklch(49% 0.03 166)",
+          "oklch(61% 0.03 166)",
+          "oklch(72% 0.03 166)",
+          "oklch(84% 0.03 166)",
+          "oklch(95% 0.03 166)"
+        ]
+      },
+      "table": {
+        "role": "neutral",
+        "displayName": "Midnight Table",
+        "tonalRamp": [
+          "oklch(15% 0.025 230)",
+          "oklch(26% 0.025 230)",
+          "oklch(38% 0.025 230)",
+          "oklch(49% 0.025 230)",
+          "oklch(61% 0.025 230)",
+          "oklch(72% 0.025 230)",
+          "oklch(84% 0.025 230)",
+          "oklch(95% 0.025 230)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Blue Felt Surface",
+        "tonalRamp": [
+          "oklch(15% 0.03 230)",
+          "oklch(26% 0.03 230)",
+          "oklch(38% 0.03 230)",
+          "oklch(49% 0.03 230)",
+          "oklch(61% 0.03 230)",
+          "oklch(72% 0.03 230)",
+          "oklch(84% 0.03 230)",
+          "oklch(95% 0.03 230)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Warm Pale Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02 85)",
+          "oklch(26% 0.02 85)",
+          "oklch(38% 0.02 85)",
+          "oklch(49% 0.02 85)",
+          "oklch(61% 0.02 85)",
+          "oklch(72% 0.02 85)",
+          "oklch(84% 0.02 85)",
+          "oklch(95% 0.02 85)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Cool Mist",
+        "tonalRamp": [
+          "oklch(15% 0.025 190)",
+          "oklch(26% 0.025 190)",
+          "oklch(38% 0.025 190)",
+          "oklch(49% 0.025 190)",
+          "oklch(61% 0.025 190)",
+          "oklch(72% 0.025 190)",
+          "oklch(84% 0.025 190)",
+          "oklch(95% 0.025 190)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Slate Seam",
+        "tonalRamp": [
+          "oklch(15% 0.025 220)",
+          "oklch(26% 0.025 220)",
+          "oklch(38% 0.025 220)",
+          "oklch(49% 0.025 220)",
+          "oklch(61% 0.025 220)",
+          "oklch(72% 0.025 220)",
+          "oklch(84% 0.025 220)",
+          "oklch(95% 0.025 220)"
+        ]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Inset Navy",
+        "tonalRamp": [
+          "oklch(15% 0.025 230)",
+          "oklch(26% 0.025 230)",
+          "oklch(38% 0.025 230)",
+          "oklch(49% 0.025 230)",
+          "oklch(61% 0.025 230)",
+          "oklch(72% 0.025 230)",
+          "oklch(84% 0.025 230)",
+          "oklch(95% 0.025 230)"
+        ]
+      },
+      "primary-ink": {
+        "role": "neutral",
+        "displayName": "Primary Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 220)",
+          "oklch(26% 0.025 220)",
+          "oklch(38% 0.025 220)",
+          "oklch(49% 0.025 220)",
+          "oklch(61% 0.025 220)",
+          "oklch(72% 0.025 220)",
+          "oklch(84% 0.025 220)",
+          "oklch(95% 0.025 220)"
+        ]
+      },
+      "secondary-ink": {
+        "role": "neutral",
+        "displayName": "Secondary Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 190)",
+          "oklch(26% 0.025 190)",
+          "oklch(38% 0.025 190)",
+          "oklch(49% 0.025 190)",
+          "oklch(61% 0.025 190)",
+          "oklch(72% 0.025 190)",
+          "oklch(84% 0.025 190)",
+          "oklch(95% 0.025 190)"
+        ]
+      },
+      "card-paper": {
+        "role": "neutral",
+        "displayName": "Warm Card Paper",
+        "tonalRamp": [
+          "oklch(15% 0.04 85)",
+          "oklch(26% 0.04 85)",
+          "oklch(38% 0.04 85)",
+          "oklch(49% 0.04 85)",
+          "oklch(61% 0.04 85)",
+          "oklch(72% 0.04 85)",
+          "oklch(84% 0.04 85)",
+          "oklch(95% 0.04 85)"
+        ]
+      },
+      "card-ink": {
+        "role": "neutral",
+        "displayName": "Dark Card Ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 220)",
+          "oklch(26% 0.025 220)",
+          "oklch(38% 0.025 220)",
+          "oklch(49% 0.025 220)",
+          "oklch(61% 0.025 220)",
+          "oklch(72% 0.025 220)",
+          "oklch(84% 0.025 220)",
+          "oklch(95% 0.025 220)"
+        ]
+      },
+      "danger": {
+        "role": "tertiary",
+        "displayName": "Muted Burgundy",
+        "tonalRamp": [
+          "oklch(15% 0.06 20)",
+          "oklch(26% 0.06 20)",
+          "oklch(38% 0.06 20)",
+          "oklch(49% 0.06 20)",
+          "oklch(61% 0.06 20)",
+          "oklch(72% 0.06 20)",
+          "oklch(84% 0.06 20)",
+          "oklch(95% 0.06 20)"
+        ]
+      },
+      "danger-ink": {
+        "role": "neutral",
+        "displayName": "Pale Warm Danger Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02 45)",
+          "oklch(26% 0.02 45)",
+          "oklch(38% 0.02 45)",
+          "oklch(49% 0.02 45)",
+          "oklch(61% 0.02 45)",
+          "oklch(72% 0.02 45)",
+          "oklch(84% 0.02 45)",
+          "oklch(95% 0.02 45)"
+        ]
+      },
+      "decision": {
+        "role": "neutral",
+        "displayName": "Decision Teal",
+        "tonalRamp": [
+          "oklch(15% 0.035 210)",
+          "oklch(26% 0.035 210)",
+          "oklch(38% 0.035 210)",
+          "oklch(49% 0.035 210)",
+          "oklch(61% 0.035 210)",
+          "oklch(72% 0.035 210)",
+          "oklch(84% 0.035 210)",
+          "oklch(95% 0.035 210)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Rules and entry copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "influence-card",
+        "value": "0 10px 26px #07131955",
+        "purpose": "Physical card separation."
+      },
+      {
+        "name": "entry-panel",
+        "value": "0 18px 40px #09151c33",
+        "purpose": "Ambient form lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "background .2s, transform .2s",
+        "purpose": "Enabled control hover; disabled for reduced motion."
+      },
+      {
+        "name": "fan-arrival",
+        "value": "y:28→0; opacity:.65→1; duration:.65s; stagger:.09s; ease:power3.out",
+        "purpose": "GSAP fan arrival; skipped for reduced motion."
+      },
+      {
+        "name": "decision-settle",
+        "value": "y:8→0; duration:.25s; ease:power3.out",
+        "purpose": "GSAP current decision arrival; skipped for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "min-width:1500px"
+      },
+      {
+        "name": "compact",
+        "value": "max-width:1000px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width:700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Canonical primary button control.",
+      "html": "<button class=\"ds-primary\">Create a room</button>",
+      "css": ".ds-primary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--gold,#e8b86d);color:#172c33;border:1px solid var(--gold,#e8b86d);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-primary:hover:not(:disabled){background:#f7cb87;transform:translateY(-2px)}.ds-primary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-primary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Canonical secondary button control.",
+      "html": "<button class=\"ds-secondary\">Join room</button>",
+      "css": ".ds-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--green,#a6c8bc);color:#142b2d;border:1px solid var(--green,#a6c8bc);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-secondary:hover:not(:disabled){background:#c7dfd5;transform:translateY(-2px)}.ds-secondary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-secondary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}.ds-secondary:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Canonical quiet button control.",
+      "html": "<button class=\"ds-quiet\">How to play</button>",
+      "css": ".ds-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;background:transparent;color:var(--ink,#f5eee0);border:1px solid var(--line,#3c5359);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-quiet:hover:not(:disabled){background:var(--surface,#1e3540);transform:translateY(-2px)}.ds-quiet:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-quiet:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-quiet{transition:none}.ds-quiet:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Canonical danger button control.",
+      "html": "<button class=\"ds-danger\">Leave room</button>",
+      "css": ".ds-danger{font-family:Geist,Arial,sans-serif;font-size:14px;background:#663a3b;color:#fff3ed;border:1px solid #be7c76;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-danger:hover:not(:disabled){background:#663a3b;transform:translateY(-2px)}.ds-danger:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-danger:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-danger{transition:none}.ds-danger:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Name Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Inset field for a player name.",
+      "html": "<label class=\"ds-label\">Your name<input class=\"ds-field\" placeholder=\"Enter your name\"></label>",
+      "css": ".ds-label{font-family:Geist,Arial,sans-serif;font-size:14px;display:grid;gap:9px;color:var(--ink,#f5eee0);font-size:13px;font-weight:600}.ds-field{font-family:Geist,Arial,sans-serif;font-size:14px;background:#12242c;color:var(--ink,#f5eee0);border:1px solid #60757a;border-radius:8px;padding:14px 15px;min-height:48px;caret-color:var(--gold,#e8b86d)}.ds-field::placeholder{color:#a0b6b9}.ds-field:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}"
+    },
+    {
+      "name": "Room Entry Panel",
+      "kind": "card",
+      "refersTo": "entry-card",
+      "description": "Ambient raised form container.",
+      "html": "<section class=\"ds-entry\"><h2>Your seat awaits.</h2><p>Create a room and invite your friends.</p></section>",
+      "css": ".ds-entry{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--surface,#1e3540);color:var(--ink,#f5eee0);border:1px solid #40555c;border-radius:16px;padding:32px;box-shadow:0 18px 40px #09151c33}.ds-entry h2{font-size:30px;letter-spacing:-.025em;margin:14px 0 8px}.ds-entry p{font-size:14px;color:var(--muted,#b5c9ca);line-height:1.65}"
+    },
+    {
+      "name": "Table Navigation",
+      "kind": "nav",
+      "description": "Compact brand and rules access.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#cat-coup\">Cat Coup<span>•</span></a><button class=\"ds-rules\">How to play</button></nav>",
+      "css": ".ds-nav{font-family:Geist,Arial,sans-serif;font-size:14px;display:flex;align-items:center;justify-content:space-between;height:100px;gap:20px;border-bottom:1px solid var(--line,#3c5359);color:var(--ink,#f5eee0)}.ds-brand{font-size:24px;font-weight:800;letter-spacing:-.04em;color:inherit;text-decoration:none}.ds-brand span{color:var(--gold,#e8b86d)}.ds-rules{font-family:Geist,Arial,sans-serif;font-size:14px;border:1px solid var(--line,#3c5359);border-radius:9px;padding:13px 20px;color:inherit;background:transparent;min-height:44px;font-weight:600;cursor:pointer;transition:background .2s}.ds-rules:hover{background:var(--surface,#1e3540)}.ds-rules:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-brand:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}@media(max-width:700px){.ds-nav{height:80px}.ds-brand{font-size:21px}}@media(prefers-reduced-motion:reduce){.ds-rules{transition:none}}"
+    },
+    {
+      "name": "Current Decision",
+      "kind": "custom",
+      "refersTo": "decision-panel",
+      "description": "Current game question and supporting instruction.",
+      "html": "<section class=\"ds-decision\"><h2>Your turn</h2><p>Choose an action. You may claim any character.</p></section>",
+      "css": ".ds-decision{font-family:Geist,Arial,sans-serif;font-size:14px;background:#213d45;border:1px solid #52716e;border-radius:12px;padding:24px 28px;min-height:128px;color:var(--ink,#f5eee0)}.ds-decision h2{font-size:26px;letter-spacing:-.03em;margin:0 0 8px}.ds-decision p{font-size:13px;line-height:1.65;color:var(--muted,#b5c9ca);max-width:72ch;margin:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Midnight Cat Lounge",
+    "overview": "A cozy table for playful deception: deep navy felt supports warm original cat portraits, amber actions, and pale readable text. The atmosphere is intimate and tactile, while the controls remain direct enough for fast multiplayer decisions.\n\nGeist carries both expressive headlines and compact game information. Tonal panels organize the table; the warm paper of influence cards distinguishes physical objects from interface controls. Cat characters replace human characters as a durable brand commitment.",
+    "keyCharacteristics": [
+      "Midnight navy table with amber-gold actions and sage secondary controls.",
+      "Warm illustrated cats framed as pale physical cards.",
+      "Compact, readable game controls with explicit selection and turn states.",
+      "Brief arrival motion that respects reduced-motion preferences."
+    ],
+    "rules": [
+      {
+        "name": "The Amber Signal Rule",
+        "body": "Use amber for actionable emphasis and meaningful game state; pair it with labels, borders, or selection outlines so state remains understandable.",
+        "section": "colors"
+      },
+      {
+        "name": "The Table Depth Rule",
+        "body": "Use tonal panels and borders for game organization; reserve the stronger existing shadow for physical influence cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do retain the Midnight Cat Lounge palette and warm original cat artwork.",
+      "Do mark turns, selections, and available responses with readable text and visible state treatments.",
+      "Do preserve the responsive opponent, decision, hand, and action hierarchy.",
+      "Do honor reduced motion in both CSS and GSAP.",
+      "Do keep keyboard focus visible with the shared amber outline."
+    ],
+    "donts": [
+      "Don't make another player's hidden influence visually inspectable.",
+      "Don't rely on animation completion to unlock a game action.",
+      "Don't replace cat portraits with unrelated human character imagery.",
+      "Don't flatten selected, revealed, disabled, and active-turn states into the same treatment."
+    ]
+  }
+}

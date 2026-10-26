@@ -1,0 +1,31 @@
+name: cat-coup
+services:
+  app:
+    image: ${CAT_COUP_IMAGE:?Set an exact tested image reference}
+    ports:
+      - "127.0.0.1:${APP_PORT:-3001}:3001"
+      - "127.0.0.1:${ADMIN_PORT:-3002}:3002"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3001
+      ADMIN_HOST: 0.0.0.0
+      ADMIN_PORT: 3002
+      ADMIN_TOKEN_FILE: /run/secrets/admin_token
+      START_DRAINED: "true"
+    secrets: [admin_token]
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+secrets:
+  admin_token:
+    file: ${CAT_COUP_ADMIN_TOKEN_FILE:?Set a private token file outside the checkout}

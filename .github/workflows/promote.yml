@@ -1,0 +1,43 @@
+name: Promote deployment
+on:
+  workflow_dispatch:
+    inputs:
+      ci_run:
+        description: Successful main CI run ID containing deployment-candidate
+        required: true
+        type: string
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: production-promotion
+  cancel-in-progress: false
+jobs:
+  promote:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Validate CI and promote its exact image
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN: ${{ inputs.ci_run }}
+        run: |
+          set -euo pipefail
+          [[ "$CI_RUN" =~ ^[1-9][0-9]*$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CI_RUN" > run.json
+          jq -e --arg repo "$GITHUB_REPOSITORY" '.conclusion == "success" and .event == "push" and .head_branch == "main" and .path == ".github/workflows/ci.yml" and .head_repository.full_name == $repo' run.json
+          gh run download "$CI_RUN" --repo "$GITHUB_REPOSITORY" --name deployment-candidate --dir candidate
+          export CANDIDATE_COMMIT=$(jq -r .head_sha run.json)
+          node --input-type=module <<'JS'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { validateManifest } from './scripts/deployment-manifest.mjs';
+          const candidate = JSON.parse(readFileSync('candidate/candidate.json'));
+          if (candidate.commit !== process.env.CANDIDATE_COMMIT || candidate.ciRun !== process.env.CI_RUN) throw Error('Candidate provenance mismatch');
+          const manifest = validateManifest({ ...candidate, promotionRun: process.env.GITHUB_RUN_ID, release: `deploy-${process.env.GITHUB_RUN_ID}` });
+          writeFileSync('deployment.json', JSON.stringify(manifest, null, 2));
+          JS
+          gh release create "deploy-$GITHUB_RUN_ID" deployment.json --repo "$GITHUB_REPOSITORY" --target "$CANDIDATE_COMMIT" --title "Deploy $CANDIDATE_COMMIT" --notes "Explicit promotion of CI run $CI_RUN. Host deployment drains active games before replacement."
