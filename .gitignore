@@ -9,3 +9,4 @@ deployment-state/
 .impeccable/config.json
 .impeccable/questions/
 .impeccable/direction-options.json
+.archify/

@@ -37,6 +37,8 @@ When a claim is challenged, the server automatically proves it if the claimant h
 
 ## Verification
 
+Performance: `pnpm perf:budget` checks built asset budgets after a build. See [PERF.md](PERF.md) for the measured lossless artwork optimization and the next bounded measurement loops.
+
 ```sh
 pnpm test
 pnpm build

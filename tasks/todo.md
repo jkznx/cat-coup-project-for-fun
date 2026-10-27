@@ -1,15 +1,15 @@
 # CI/CD implementation checklist
 
-Status: CI/CD is planned, not implemented. The Cloudflared Windows service is already installed and verified Running/Automatic; local app health passes. Token rotation and public route verification are pending. See `plan.md` for architecture and pending inputs.
+Status updated 2026-10-27: production packaging, workflows, drain controls and deployment tools are implemented. CI run 40344812125 passed on the public `jkznx/cat-coup-project-for-fun` repository. Temporary-port container and browser checks passed. The user confirmed private tunnel-token rotation/service update and authorized migration after tests. Live Docker migration, promotion, rollback drill and scheduled activation remain unverified. Performance loop 1 and its evidence are in `PERF.md`.
 
 ## Task 1: Run a production container
 
 Add an emitted server build and multi-stage Docker image, with pinned Node/pnpm and non-root runtime.
 
 Acceptance:
-- [ ] Frozen install, frontend/server build and all existing tests pass.
-- [ ] Runtime uses emitted JavaScript and production dependencies, without requiring `tsx`.
-- [ ] Two isolated clients create/join/ready/start through the image; hidden hands remain private.
+- [x] Frozen install, frontend/server build and all existing tests pass.
+- [x] Runtime uses emitted JavaScript and production dependencies, without requiring `tsx`.
+- [x] Two isolated clients create/join/ready/start through the image; hidden hands remain private.
 
 Verification: `pnpm test`, `pnpm build`, the new server build command, `docker build`, `/health`, two-client container test.
 
@@ -21,7 +21,7 @@ Add the app Compose service and document the route through the existing Cloudfla
 
 Acceptance:
 - [ ] App maps only `127.0.0.1:3001:3001`; Windows tunnel route uses `http://127.0.0.1:3001`.
-- [ ] Disclosed connector token is rotated and the Windows service updated privately; no secret is recorded in Git or build logs.
+- [x] User confirmed the disclosed connector token was rotated and the Windows service updated privately; no replacement secret was supplied to the assistant.
 - [ ] Real hostname serves HTTPS plus Socket.IO WebSocket and HTTP fallback to two clients.
 
 Verification: `docker compose config` without disclosing secrets, local/public health, browser network transport checks, connector restart/reconnect test.
@@ -50,8 +50,8 @@ Dependencies: task 1; repository and visibility supplied. Likely files: .github/
 Add drain controls, count-only deployment status and build-version reporting.
 
 Acceptance:
-- [ ] Separate authenticated admin listener is reachable only through the intended local management path; public app routes cannot invoke it.
-- [ ] Drain stops new rooms/game starts while allowing current games and seat reconnection.
+- [x] Separate authenticated admin listener and public-route isolation pass local tests; Compose restricts the published admin port to loopback.
+- [x] Drain stops new rooms/game starts while allowing current games and seat reconnection.
 - [ ] Unfinished disconnected games block deployment; timeout safely reopens admission without restarting.
 
 Verification: focused server tests for admin authentication/routing, drain transitions, counts, reconnects, timeout handling and version output.

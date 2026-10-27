@@ -4,6 +4,7 @@ build
 .git
 .env*
 .impeccable
+.archify
 tasks
 *.log
 deployment-state

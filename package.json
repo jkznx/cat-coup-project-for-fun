@@ -8,7 +8,8 @@
     "dev": "concurrently -k \"tsx watch server/index.ts\" \"vite --host 127.0.0.1\"",
     "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json",
     "start": "node build/server/index.js",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "perf:budget": "node scripts/performance-budget.mjs"
   },
   "dependencies": {
     "@fontsource/geist": "^5.3.0",

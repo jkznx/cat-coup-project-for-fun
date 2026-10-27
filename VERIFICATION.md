@@ -2,6 +2,16 @@
 
 Verified 2026-10-26, Asia/Bangkok.
 
+## Update: 2026-10-27
+
+- Hosted CI run [40344812125](https://github.com/jkznx/cat-coup-project-for-fun/actions/runs/40344812125) completed successfully: both `verify` and `publish` passed for the original deployment implementation.
+- Current local suite: 13 passed, including admin isolation, startup drain, unfinished-game/reconnect handling and manifest validation.
+- The production image was tested on temporary port 3101, including the desktop/mobile browser game flow and isolated WebSocket/polling smoke. Runtime user was `node`; `tsx` was absent from production dependencies.
+- Lossless artwork delivery was measured on a separate instance on port 3105. Original and derivative decoded RGBA pixels match. The derivative is 31.3% smaller; full evidence and timing limitations are in `PERF.md` and `docs/performance/2026-10-27.json`.
+- After the artwork change, production build, byte budgets, 13 tests, desktop/mobile walkthrough and both socket transports passed locally. New hosted CI results must be recorded separately after publication.
+- The user confirmed private tunnel-token rotation/service update and approved a tested live migration with no games in progress. That approval is not evidence that Docker migration, promotion, rollback drills or scheduled activation have occurred.
+- Archify architecture based on commit `00f98fb923852efdb49fd9c617d4458d10f3e072` passed schema, artifact, strict provenance and real-browser gates. Local artifacts are under ignored `.archify/architecture-cat-coup-20261027-010000/`.
+
 ## Functional checks
 
 - `node --import tsx --test tests/*.test.ts`: 11 passed, 0 failed.

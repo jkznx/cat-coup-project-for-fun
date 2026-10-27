@@ -1,12 +1,12 @@
 # Plan: Cat Coup CI/CD through Cloudflare Tunnel
 
-Planning date: 2026-10-26 (Asia/Bangkok). Status: CI/CD implementation remains proposed. The Cloudflared Windows service is Running/Automatic. Public HTTPS health and a two-client lobby/WebSocket check passed through Cloudflare on 2026-10-26; see `VERIFICATION.md` for the local DNS limitation. Docker migration and automated deployment remain pending. Tasks are tracked in `tasks/todo.md`.
+Planning date: 2026-10-26 (Asia/Bangkok), updated 2026-10-27. Production packaging, CI, drain and deployment tools are implemented. Hosted CI run 40344812125 passed both verification and publication. Public HTTPS and two-client lobby/WebSocket checks previously passed against the Windows Node server. The user confirmed token rotation/service update and authorized a tested migration. Live Docker migration, rollback drills and scheduled activation remain pending. See `tasks/todo.md`, `DEPLOYMENT.md` and `PERF.md` for evidence and the performance loop.
 
 ## Confirmed scope and assumptions
 
 - Run on the user's Windows PC with Docker Desktop, using Linux containers.
 - Use a stable Cloudflare Tunnel hostname for browser and Socket.IO traffic.
-- Proposed source/CI platform: GitHub Actions with images in GHCR. Repository owner, visibility and URL are not yet supplied. The local project has no `.git` directory.
+- Source/CI: public repository `https://github.com/jkznx/cat-coup-project-for-fun`, GitHub Actions and GHCR. The local checkout is initialized and pushed on main.
 - Confirmed hostname: `https://cat-coup.jukrachai-crybaby.space`, routed through the `cat-coup` tunnel to `http://localhost:3001` on Windows.
 - One Node app instance. Existing room/session state is in memory; restarting loses rooms, including during rollback. No database migration or multi-replica feature is proposed.
 
