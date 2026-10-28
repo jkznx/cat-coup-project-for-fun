@@ -12,6 +12,8 @@ import './style.css';
 import {RoundTable} from './RoundTable';
 import {VoiceChat} from './VoiceChat';
 import './table-voice.css';
+import '@fontsource/bree-serif/latin-400.css';
+import './vintage-theme.css';
 
 const roles: Role[] = ['Duke','Assassin','Captain','Ambassador','Contessa'];
 const actions: {id:Action; label:string; detail:string; role?:Role; cost:number; targeted?:boolean}[] = [

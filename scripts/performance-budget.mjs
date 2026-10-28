@@ -10,12 +10,15 @@ for (const name of files) {
   if (name.endsWith('.js')) javascriptGzip += gzipSync(bytes).length;
   else {
     cssGzip += gzipSync(bytes).length;
-    for (const match of bytes.toString().matchAll(/url\(["']?(\/assets\/cat-court[^)"']+)/g)) artwork.add(match[1]);
+    for (const match of bytes.toString().matchAll(/url\(["']?(\/assets\/(?:cat-court|vintage-court)[^)"']+)/g)) artwork.add(match[1]);
   }
 }
-if (artwork.size !== 1) throw Error('Expected one active cat sprite in production CSS');
-const artworkBytes = (await readFile(resolve('dist', [...artwork][0].slice(1)))).length;
-const metrics = { javascriptGzip, cssGzip, artworkBytes };
-const budgets = { javascriptGzip: 130000, cssGzip: 23000, artworkBytes: 2250000 };
+if (artwork.size !== 2 || !artwork.has('/assets/cat-court-lossless.webp') || !artwork.has('/assets/vintage-court.webp')) throw Error('Expected the Classic and Vintage delivery sprites in production CSS');
+const classicArtworkBytes=(await readFile(resolve('dist/assets/cat-court-lossless.webp'))).length;
+const vintageArtworkBytes=(await readFile(resolve('dist/assets/vintage-court.webp'))).length;
+const artworkBytes=classicArtworkBytes+vintageArtworkBytes;
+const metrics = { javascriptGzip, cssGzip, classicArtworkBytes, vintageArtworkBytes, artworkBytes };
+// Preserve the Classic cap; grant the three additional portraits their own bounded 250KB allowance.
+const budgets = { javascriptGzip: 130000, cssGzip: 23000, classicArtworkBytes:2250000, vintageArtworkBytes:250000, artworkBytes:2500000 };
 console.log(JSON.stringify({ metrics, budgets }, null, 2));
 for (const key of Object.keys(budgets)) if (metrics[key] > budgets[key]) throw Error(`Performance budget exceeded: ${key}`);

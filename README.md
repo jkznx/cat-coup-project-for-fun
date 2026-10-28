@@ -77,6 +77,11 @@ The lobby host selects **Classic** (default) or **Vintage** before dealing. Chan
 | Bandit | Plunder: pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only that target can block with Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
 | Guardian | Block Captain's Steal or Bandit's Plunder against yourself. The block can be challenged. Guardian does not block assassination. |
 
-Vintage is an original Cat Coup house variant, not an official Coup expansion. The larger deck changes role probabilities; competitive balance has not been established. New characters use original inline SVG cat illustrations. Rules and block permissions live in `server/roles.ts`; both server and UI use the same catalogue. Bots handle mode-specific blocks and use Merchant when held, but retain their basic practice strategy.
+Vintage is an original Cat Coup house variant, not an official Coup expansion. The larger deck changes role probabilities; competitive balance has not been established. New characters use original painted cat illustrations matching the five original portraits. Rules and block permissions live in `server/roles.ts`; both server and UI use the same catalogue. Bots handle mode-specific blocks and use Merchant when held, but retain their basic practice strategy.
 
 `tests/modes.test.ts` verifies mode isolation, 15/24-card conservation, treasury limits, paid theft/refunds, truthful Guardian challenges, private exchanges, full Vintage bot games and lobby authorization/readiness. `tests/modes-browser.mjs` checks mode selection, eight-role help, action visibility, new portraits and mobile layouts against an isolated localhost server.
+
+
+## Vintage storybook theme
+
+Vintage rooms use a warm paper/ink skin with self-hosted Bree Serif headings, burgundy actions, teal voice controls and a wooden round table. Classic retains the Midnight Cat Lounge skin. The original five portraits remain byte-for-byte unchanged; Merchant, Bandit and Guardian use a separately generated painted sprite. See public/assets/PROVENANCE.md for origin and delivery details. The three new portraits add 199,714 bytes; their delivery budget is 250KB, separate from the unchanged Classic artwork cap. Mobile Vintage hands keep two cards side-by-side. Keyboard focus, disabled/selected/revealed states and hold-to-talk are retained.

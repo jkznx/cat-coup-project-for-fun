@@ -19,6 +19,25 @@ colors:
   danger: "#663a3b"
   danger-ink: "#fff3ed"
   decision: "#213d45"
+  vintage-paper: "#efe0bc"
+  vintage-surface: "#f6ebd2"
+  vintage-ink: "#352a24"
+  vintage-muted: "#695443"
+  vintage-line: "#957b5e"
+  vintage-primary: "#963c31"
+  vintage-primary-hover: "#7c3028"
+  vintage-control-ink: "#fff2d6"
+  vintage-secondary: "#315c50"
+  vintage-secondary-hover: "#24493f"
+  vintage-focus: "#23594e"
+  vintage-border-ink: "#493426"
+  vintage-selected: "#e6c985"
+  vintage-input: "#fff5dd"
+  vintage-coin: "#80540f"
+  vintage-table: "#c7ac75"
+  vintage-wood: "#6b4630"
+  vintage-card-paper: "#f7e9c8"
+  vintage-card-border: "#6c4822"
 typography:
   display:
     fontFamily: "Geist, Arial, sans-serif"
@@ -39,6 +58,16 @@ typography:
     fontFamily: "Geist, Arial, sans-serif"
     fontSize: "13px"
     fontWeight: 600
+  vintage-headline:
+    fontFamily: "Bree Serif, Georgia, serif"
+    fontSize: "30px"
+    fontWeight: 400
+    letterSpacing: "-0.02em"
+  vintage-mode-title:
+    fontFamily: "Bree Serif, Georgia, serif"
+    fontSize: "24px"
+    fontWeight: 400
+    letterSpacing: "-0.02em"
 rounded:
   field: "8px"
   button: "9px"
@@ -46,6 +75,7 @@ rounded:
   panel: "12px"
   dialog: "14px"
   entry: "16px"
+  vintage-influence: "12px"
 spacing:
   compact: "8px"
   control-gap: "10px"
@@ -90,6 +120,28 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.panel}"
     padding: "24px 28px"
+  vintage-button-primary:
+    backgroundColor: "{colors.vintage-primary}"
+    textColor: "{colors.vintage-control-ink}"
+    rounded: "{rounded.button}"
+    padding: "13px 20px"
+  vintage-button-secondary:
+    backgroundColor: "{colors.vintage-secondary}"
+    textColor: "{colors.vintage-control-ink}"
+    rounded: "{rounded.button}"
+    padding: "13px 20px"
+  vintage-button-quiet:
+    backgroundColor: "{colors.vintage-surface}"
+    textColor: "{colors.vintage-border-ink}"
+    rounded: "{rounded.button}"
+    padding: "13px 20px"
+  vintage-button-primary-hover:
+    backgroundColor: "{colors.vintage-primary-hover}"
+  vintage-influence:
+    backgroundColor: "{colors.vintage-card-paper}"
+    textColor: "{colors.vintage-border-ink}"
+    rounded: "{rounded.vintage-influence}"
+    padding: "6px"
 ---
 
 # Design System: Cat Coup
@@ -108,6 +160,9 @@ Geist carries both expressive headlines and compact game information. Tonal pane
 - Warm illustrated cats framed as pale physical cards.
 - Compact, readable game controls with explicit selection and turn states.
 - Brief arrival motion that respects reduced-motion preferences.
+- Vintage rooms use warm paper, ink outlines, Bree Serif headings and a painted eight-cat cast; Classic remains Midnight Cat Lounge.
+
+Vintage adds a room-scoped **Printed Storybook Court** variant. The default system below remains the Classic Midnight Cat Lounge: selecting Vintage changes the surrounding paper, ink, type and controls, while the original five painted cat portraits remain unchanged. Merchant, Bandit and Guardian use a matching painted three-panel sprite, not the former flat vector portraits. Rules, hidden-card semantics and opt-in hold-to-talk remain independent of this skin.
 
 ## Colors
 
@@ -142,6 +197,12 @@ The palette pairs a cool, deep table with warm cards and amber highlights.
 
 **The Amber Signal Rule.** Use amber for actionable emphasis and meaningful game state; pair it with labels, borders, or selection outlines so state remains understandable.
 
+### Vintage room variant
+
+Warm Paper grounds the room; Print Surface holds utilities, seats and decisions; Brown Ink and Warm Muted Ink carry primary and secondary copy. Brick Burgundy marks primary actions and the talking state, while Deep Teal supports secondary and voice controls. Mustard Paper marks the selected mode and room code. Ink Brown outlines the controls, and Teal Focus remains distinct from the burgundy selected/turn state. The new artwork joins the original painted cast rather than replacing its style.
+
+**The Room Skin Rule.** Apply Vintage tokens only inside a Vintage room; switching to Classic restores the incumbent dark palette and Geist display voice.
+
 ## Typography
 
 **Display Font:** Geist, with Arial and sans-serif fallbacks.  
@@ -158,6 +219,10 @@ The palette pairs a cool, deep table with warm cards and amber highlights.
 - **Label**: semibold form labels use 13px. Game metadata commonly uses 10–12px; retain sufficient contrast and visible hierarchy.
 - **Numeric detail**: coin counts use tabular numerals. Room codes use generous tracking, with the main code at 30px and 0.14em.
 
+### Vintage lettering
+
+Self-hosted Bree Serif (400), with Georgia and serif fallbacks, supplies Vintage headings, brand, mode titles and the table wordmark. The decision heading uses the vintage-headline token and falls to 26px at the 700px breakpoint; mode titles use the vintage-mode-title token. The brand is 30px on desktop and 25px on mobile. Geist remains the body and control face. The table wordmark scales independently, while the reading layer retains explicit role names and costs.
+
 ## Layout
 
 The centered application container has a maximum width of 1600px and horizontal gutters of 5%, moving to 4% at 1000px and 20px at 700px. Spacing is contextual rather than an invented universal scale: compact control gaps sit inside larger panel and section separations.
@@ -165,6 +230,8 @@ The centered application container has a maximum width of 1600px and horizontal 
 The welcome surface uses a two-column grid with a flexible illustration area and a room form. Lobby seats use three equal columns, falling to two on mobile. The game places wrapping opponents above the current decision, then presents hand and actions in two columns. At 1000px the decision responses stack beneath their text; at 700px the play area becomes a vertical flow. The action tray keeps two columns. Rules character guides become one column on mobile.
 
 At 1500px and above, the welcome composition gains vertical breathing room and larger card artwork. Keep decision text readable: the central panel caps supporting copy at 72ch. Long player names wrap instead of forcing wider seats.
+
+Vintage inherits the application container and game flow. At 700px and below, influence cards use two equal grid columns with a 10px gap and artwork at a 4:5 ratio, keeping the two-card hand side by side. Actions retain two columns, with each mobile action showing its cost row separately. At 420px and below the redundant central deck graphic and turn pill are omitted; counts remain in the center and the decision panel carries the action prompt. These changes do not expose hidden roles or change seat order.
 
 ## Elevation & Depth
 
@@ -177,9 +244,13 @@ Depth combines tonal layering, fine borders, and restrained shadows. Interface p
 
 **The Table Depth Rule.** Use tonal panels and borders for game organization; reserve the stronger existing shadow for physical influence cards.
 
+Vintage replaces cool ambient shadows with warm ink-tinted lift: influence cards use `0 7px 16px #49342628`, the mode panel uses `0 6px 14px #49342616`, and the decision panel uses `0 5px 13px #49342616`. Buttons use restrained, blurred elevation. The circular table has a wooden rim and inset paper-colored edge; the deck stack uses small blurred offsets, not a new global shadow convention.
+
 ## Shapes
 
 Gently rounded rectangles dominate. Fields, buttons, influence cards, decision panels, dialogs, and entry panels use their named radius tokens. Fine borders define edges against the table. Portraits clip to rounded artwork windows in cards and oval silhouettes in player seats. Empty seats use dashed borders; occupied seats use solid borders and a filled surface.
+
+Vintage uses two-pixel ink outlines on its controls and panels, a three-pixel burgundy current-turn outline on larger screens, and rounded influence frames from the vintage-influence token. The active-turn outline becomes two pixels at the smallest breakpoint. Its painted artwork stays inside clipped windows; do not reinterpret the portraits as flat icons.
 
 ## Components
 
@@ -211,15 +282,22 @@ The original generated portrait strip at `public/assets/cat-court.png` supplies 
 
 The landing fan uses static rotations from -16° to 16°. GSAP reveals its cards with a 28px rise, 0.65-second duration, 0.09-second stagger, and `power3.out`; decisions settle by 8px over 0.25 seconds. Motion never gates actions. GSAP exits before animation when reduced motion is requested, and CSS disables transitions, animations, and hover lift.
 
+### Vintage room controls and cards
+
+Vintage primary buttons use Brick Burgundy and pale control ink; secondary buttons use Deep Teal with the same pale ink. Quiet controls use Print Surface, a warm seam and brown text. Fields use a pale inset paper background, Brown Ink text and burgundy caret. Hover changes color over 0.16 seconds; inherited reduced-motion safeguards still apply. Keyboard focus uses a three-pixel Teal Focus outline with a four-pixel offset.
+
+Selected influence uses a burgundy outline and the inherited lift; revealed cards remain desaturated with 0.65 opacity. Disabled game actions use 0.7 opacity. Voice stays opt-in: the microphone control is teal at rest and burgundy while transmitting, with its visible status text retained. Role names and abilities are accessible HTML; the new sprite carries no baked-in labels.
+
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** retain the Midnight Cat Lounge palette and warm original cat artwork.
+- **Do** retain the Midnight Cat Lounge palette for Classic and warm original cat artwork in both modes.
 - **Do** mark turns, selections, and available responses with readable text and visible state treatments.
 - **Do** preserve the responsive opponent, decision, hand, and action hierarchy.
 - **Do** honor reduced motion in both CSS and GSAP.
-- **Do** keep keyboard focus visible with the shared amber outline.
+- **Do** keep keyboard focus visible with the shared amber outline in Classic and the teal outline in Vintage.
+- **Do** apply the Vintage paper/ink variant only to Vintage rooms and preserve the original five painted portraits.
 
 ### Don't:
 
@@ -227,4 +305,5 @@ The landing fan uses static rotations from -16° to 16°. GSAP reveals its cards
 - **Don't** rely on animation completion to unlock a game action.
 - **Don't** replace cat portraits with unrelated human character imagery.
 - **Don't** flatten selected, revealed, disabled, and active-turn states into the same treatment.
+- **Don't** substitute flat geometric portraits for the painted Vintage cast or apply its serif headings to Classic.
 

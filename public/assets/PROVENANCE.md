@@ -14,3 +14,15 @@ On 2026-10-27, `scripts/optimize-artwork.mjs` encoded a lossless WebP derivative
 - WebP SHA256: `346ca7e077d4176b548c3211cf998eec150a7811a0b55b798e60eed6cfcdd66c`.
 
 Reproduction requires Sharp (set `SHARP_MODULE` to an existing installation, or install it separately as a development tool). The script refuses to overwrite an existing derivative and rejects any pixel or size regression. The browser uses the WebP; the PNG remains the original source artwork.
+
+## Vintage court extension — 2026-10-28
+
+Merchant, Bandit and Guardian were generated with the built-in imagegen tool using `cat-court-lossless.webp` as a style reference. The user specifically asked to preserve the visual style of the original five portraits; those five assets were not modified. The new three-panel art uses the same painterly storybook gouache, fur detail, court dress, warm portrait lighting and muted backgrounds. It is original generated feline artwork, not art from the Coup rulebook.
+
+Panel order: Merchant (brown tabby, mustard coat and purse), Bandit (silver cat, black eye mask, burgundy cloak), Guardian (cream-and-brown cat, antique teal/brass armor and shield). No labels are baked into the image; role names and abilities remain accessible HTML.
+
+Original output: `exec-08141129-4934-4636-9ded-d495f73a8066.png`; preserved in `docs/artwork/vintage-court-source.png` (1536 × 1024, 3,375,587 bytes). Web delivery: `vintage-court.webp`, resized to 960 × 640, WebP quality 86, 199,714 bytes. This derivative is intentionally lossy; it does not claim pixel identity with its source. Runtime conversion tool: Sharp, used only at build preparation time.
+
+Delivery SHA256: `129abd985f2b132ddd3f5fe45b1f5bdc68f9d65118ac3936f26d37efae87c3bd`.
+
+Prompt summary: one three-panel sprite, reference style only; matching scale, full ears/headwear, bust portraits, cunning expressions, gouache and fine ink, distinct muted backgrounds; no type, frames, watermark, original-five redraw or flat-vector style. The exact generation prompt is preserved in docs/artwork/vintage-court-source.prompt.txt. The optional scripts/prepare-vintage-artwork.mjs reproduces delivery encoding and refuses to overwrite an existing derivative.

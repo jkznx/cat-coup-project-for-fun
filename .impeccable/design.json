@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-26T08:42:46.883Z",
+  "generatedAt": "2026-10-28T13:32:44.032Z",
   "title": "Design System: Cat Coup",
   "extensions": {
     "colorMeta": {
@@ -241,6 +241,272 @@
           "oklch(84% 0.035 210)",
           "oklch(95% 0.035 210)"
         ]
+      },
+      "vintage-paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-surface": {
+        "role": "neutral",
+        "displayName": "Print Surface",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-ink": {
+        "role": "neutral",
+        "displayName": "Brown Ink",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-muted": {
+        "role": "neutral",
+        "displayName": "Warm Muted Ink",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-line": {
+        "role": "neutral",
+        "displayName": "Warm Seam",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-primary": {
+        "role": "primary",
+        "displayName": "Brick Burgundy",
+        "tonalRamp": [
+          "oklch(15% 0.12 28)",
+          "oklch(26% 0.12 28)",
+          "oklch(38% 0.12 28)",
+          "oklch(49% 0.12 28)",
+          "oklch(61% 0.12 28)",
+          "oklch(72% 0.12 28)",
+          "oklch(84% 0.12 28)",
+          "oklch(95% 0.12 28)"
+        ]
+      },
+      "vintage-primary-hover": {
+        "role": "primary",
+        "displayName": "Deep Brick",
+        "tonalRamp": [
+          "oklch(15% 0.12 28)",
+          "oklch(26% 0.12 28)",
+          "oklch(38% 0.12 28)",
+          "oklch(49% 0.12 28)",
+          "oklch(61% 0.12 28)",
+          "oklch(72% 0.12 28)",
+          "oklch(84% 0.12 28)",
+          "oklch(95% 0.12 28)"
+        ]
+      },
+      "vintage-control-ink": {
+        "role": "neutral",
+        "displayName": "Pale Control Ink",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-secondary": {
+        "role": "secondary",
+        "displayName": "Deep Teal",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(26% 0.05 160)",
+          "oklch(38% 0.05 160)",
+          "oklch(49% 0.05 160)",
+          "oklch(61% 0.05 160)",
+          "oklch(72% 0.05 160)",
+          "oklch(84% 0.05 160)",
+          "oklch(95% 0.05 160)"
+        ]
+      },
+      "vintage-secondary-hover": {
+        "role": "secondary",
+        "displayName": "Dark Teal",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(26% 0.05 160)",
+          "oklch(38% 0.05 160)",
+          "oklch(49% 0.05 160)",
+          "oklch(61% 0.05 160)",
+          "oklch(72% 0.05 160)",
+          "oklch(84% 0.05 160)",
+          "oklch(95% 0.05 160)"
+        ]
+      },
+      "vintage-focus": {
+        "role": "secondary",
+        "displayName": "Teal Focus",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(26% 0.05 160)",
+          "oklch(38% 0.05 160)",
+          "oklch(49% 0.05 160)",
+          "oklch(61% 0.05 160)",
+          "oklch(72% 0.05 160)",
+          "oklch(84% 0.05 160)",
+          "oklch(95% 0.05 160)"
+        ]
+      },
+      "vintage-border-ink": {
+        "role": "neutral",
+        "displayName": "Ink Brown",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-selected": {
+        "role": "neutral",
+        "displayName": "Mustard Paper",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-input": {
+        "role": "neutral",
+        "displayName": "Inset Paper",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-coin": {
+        "role": "neutral",
+        "displayName": "Dark Ochre",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-table": {
+        "role": "neutral",
+        "displayName": "Printed Table",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-wood": {
+        "role": "neutral",
+        "displayName": "Wood Rim",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-card-paper": {
+        "role": "neutral",
+        "displayName": "Influence Paper",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
+      },
+      "vintage-card-border": {
+        "role": "neutral",
+        "displayName": "Card Ink",
+        "tonalRamp": [
+          "oklch(15% 0.035 70)",
+          "oklch(26% 0.035 70)",
+          "oklch(38% 0.035 70)",
+          "oklch(49% 0.035 70)",
+          "oklch(61% 0.035 70)",
+          "oklch(72% 0.035 70)",
+          "oklch(84% 0.035 70)",
+          "oklch(95% 0.035 70)"
+        ]
       }
     },
     "typographyMeta": {
@@ -259,6 +525,14 @@
       "label": {
         "displayName": "Label",
         "purpose": "Form labels."
+      },
+      "vintage-headline": {
+        "displayName": "Vintage Decision Headline",
+        "purpose": "Bree Serif titles inside the Vintage room only; 26px mobile adaptation."
+      },
+      "vintage-mode-title": {
+        "displayName": "Vintage Mode Title",
+        "purpose": "Printed-storybook mode choice labels."
       }
     },
     "shadows": [
@@ -271,6 +545,21 @@
         "name": "entry-panel",
         "value": "0 18px 40px #09151c33",
         "purpose": "Ambient form lift."
+      },
+      {
+        "name": "vintage-influence",
+        "value": "0 7px 16px #49342628",
+        "purpose": "Warm blurred lift for Vintage influence cards."
+      },
+      {
+        "name": "vintage-mode-panel",
+        "value": "0 6px 14px #49342616",
+        "purpose": "Warm panel lift within Vintage rooms."
+      },
+      {
+        "name": "vintage-decision",
+        "value": "0 5px 13px #49342616",
+        "purpose": "Warm lift beneath the current decision."
       }
     ],
     "motion": [
@@ -288,6 +577,11 @@
         "name": "decision-settle",
         "value": "y:8→0; duration:.25s; ease:power3.out",
         "purpose": "GSAP current decision arrival; skipped for reduced motion."
+      },
+      {
+        "name": "vintage-control-transition",
+        "value": "background .16s,transform .16s,box-shadow .16s",
+        "purpose": "Vintage control feedback; inherited reduced-motion rule disables transitions."
       }
     ],
     "breakpoints": [
@@ -302,6 +596,10 @@
       {
         "name": "mobile",
         "value": "max-width:700px"
+      },
+      {
+        "name": "vintage-compact",
+        "value": "420px"
       }
     ]
   },
@@ -368,16 +666,41 @@
       "description": "Current game question and supporting instruction.",
       "html": "<section class=\"ds-decision\"><h2>Your turn</h2><p>Choose an action. You may claim any character.</p></section>",
       "css": ".ds-decision{font-family:Geist,Arial,sans-serif;font-size:14px;background:#213d45;border:1px solid #52716e;border-radius:12px;padding:24px 28px;min-height:128px;color:var(--ink,#f5eee0)}.ds-decision h2{font-size:26px;letter-spacing:-.03em;margin:0 0 8px}.ds-decision p{font-size:13px;line-height:1.65;color:var(--muted,#b5c9ca);max-width:72ch;margin:0}"
+    },
+    {
+      "name": "Vintage Primary Button",
+      "kind": "button",
+      "refersTo": "vintage-button-primary",
+      "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
+      "html": "<button class=\"ds-vintage-primary\">I’m ready</button>",
+      "css": ".ds-vintage-primary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#963c31;color:#fff2d6;box-shadow:0 4px 7px #49342622;}.ds-vintage-primary:hover:not(:disabled){background:#7c3028;transform:translateY(-2px)}.ds-vintage-primary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-primary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-primary{transition:none}.ds-vintage-primary:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Vintage Secondary Button",
+      "kind": "button",
+      "refersTo": "vintage-button-secondary",
+      "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
+      "html": "<button class=\"ds-vintage-secondary\">Add test bot</button>",
+      "css": ".ds-vintage-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#315c50;color:#fff2d6;border-color:#263e34;}.ds-vintage-secondary:hover:not(:disabled){background:#24493f;transform:translateY(-2px)}.ds-vintage-secondary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-secondary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-secondary{transition:none}.ds-vintage-secondary:hover:not(:disabled){transform:none}}"
+    },
+    {
+      "name": "Vintage Quiet Button",
+      "kind": "button",
+      "refersTo": "vintage-button-quiet",
+      "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
+      "html": "<button class=\"ds-vintage-quiet\">How to play</button>",
+      "css": ".ds-vintage-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#f6ebd2;color:#493426;border-color:#957b5e;}.ds-vintage-quiet:hover:not(:disabled){background:#e8d5ad;transform:translateY(-2px)}.ds-vintage-quiet:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-quiet:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-quiet{transition:none}.ds-vintage-quiet:hover:not(:disabled){transform:none}}"
     }
   ],
   "narrative": {
     "northStar": "Midnight Cat Lounge",
-    "overview": "A cozy table for playful deception: deep navy felt supports warm original cat portraits, amber actions, and pale readable text. The atmosphere is intimate and tactile, while the controls remain direct enough for fast multiplayer decisions.\n\nGeist carries both expressive headlines and compact game information. Tonal panels organize the table; the warm paper of influence cards distinguishes physical objects from interface controls. Cat characters replace human characters as a durable brand commitment.",
+    "overview": "A cozy table for playful deception: deep navy felt supports warm original cat portraits, amber actions, and pale readable text. The atmosphere is intimate and tactile, while the controls remain direct enough for fast multiplayer decisions.\n\nGeist carries both expressive headlines and compact game information. Tonal panels organize the table; the warm paper of influence cards distinguishes physical objects from interface controls. Cat characters replace human characters as a durable brand commitment.\n\nVintage adds a room-scoped **Printed Storybook Court** variant. The default system below remains the Classic Midnight Cat Lounge: selecting Vintage changes the surrounding paper, ink, type and controls, while the original five painted cat portraits remain unchanged. Merchant, Bandit and Guardian use a matching painted three-panel sprite, not the former flat vector portraits. Rules, hidden-card semantics and opt-in hold-to-talk remain independent of this skin.",
     "keyCharacteristics": [
       "Midnight navy table with amber-gold actions and sage secondary controls.",
       "Warm illustrated cats framed as pale physical cards.",
       "Compact, readable game controls with explicit selection and turn states.",
-      "Brief arrival motion that respects reduced-motion preferences."
+      "Brief arrival motion that respects reduced-motion preferences.",
+      "Vintage rooms use warm paper, ink outlines, Bree Serif headings and a painted eight-cat cast; Classic remains Midnight Cat Lounge."
     ],
     "rules": [
       {
@@ -389,20 +712,27 @@
         "name": "The Table Depth Rule",
         "body": "Use tonal panels and borders for game organization; reserve the stronger existing shadow for physical influence cards.",
         "section": "elevation"
+      },
+      {
+        "name": "The Room Skin Rule",
+        "body": "Apply Vintage tokens only inside a Vintage room; switching to Classic restores the incumbent dark palette and Geist display voice.",
+        "section": "colors"
       }
     ],
     "dos": [
-      "Do retain the Midnight Cat Lounge palette and warm original cat artwork.",
+      "Do retain the Midnight Cat Lounge palette for Classic and warm original cat artwork in both modes.",
       "Do mark turns, selections, and available responses with readable text and visible state treatments.",
       "Do preserve the responsive opponent, decision, hand, and action hierarchy.",
       "Do honor reduced motion in both CSS and GSAP.",
-      "Do keep keyboard focus visible with the shared amber outline."
+      "Do keep keyboard focus visible with the shared amber outline in Classic and the teal outline in Vintage.",
+      "Do apply the Vintage paper/ink variant only to Vintage rooms and preserve the original five painted portraits."
     ],
     "donts": [
       "Don't make another player's hidden influence visually inspectable.",
       "Don't rely on animation completion to unlock a game action.",
       "Don't replace cat portraits with unrelated human character imagery.",
-      "Don't flatten selected, revealed, disabled, and active-turn states into the same treatment."
+      "Don't flatten selected, revealed, disabled, and active-turn states into the same treatment.",
+      "Don't substitute flat geometric portraits for the painted Vintage cast or apply its serif headings to Classic."
     ]
   }
 }
