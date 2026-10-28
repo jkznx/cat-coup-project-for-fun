@@ -77,9 +77,16 @@ rounded:
   entry: "16px"
   vintage-influence: "12px"
 spacing:
+  micro: "4px"
+  small: "8px"
+  medium: "16px"
+  large: "24px"
+  extra-large: "32px"
+  spacious: "40px"
+  section: "48px"
   compact: "8px"
-  control-gap: "10px"
-  card-gap: "14px"
+  control-gap: "16px"
+  card-gap: "16px"
   section-gap: "24px"
   panel-padding: "32px"
   play-gap: "40px"
@@ -88,24 +95,24 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.primary-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
   button-secondary:
     backgroundColor: "{colors.secondary}"
     textColor: "{colors.secondary-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   button-quiet:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   button-danger:
     backgroundColor: "{colors.danger}"
     textColor: "{colors.danger-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   input:
     backgroundColor: "{colors.input}"
     textColor: "{colors.ink}"
@@ -119,22 +126,22 @@ components:
     backgroundColor: "{colors.decision}"
     textColor: "{colors.ink}"
     rounded: "{rounded.panel}"
-    padding: "24px 28px"
+    padding: "24px 32px"
   vintage-button-primary:
     backgroundColor: "{colors.vintage-primary}"
     textColor: "{colors.vintage-control-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   vintage-button-secondary:
     backgroundColor: "{colors.vintage-secondary}"
     textColor: "{colors.vintage-control-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   vintage-button-quiet:
     backgroundColor: "{colors.vintage-surface}"
     textColor: "{colors.vintage-border-ink}"
     rounded: "{rounded.button}"
-    padding: "13px 20px"
+    padding: "16px 24px"
   vintage-button-primary-hover:
     backgroundColor: "{colors.vintage-primary-hover}"
   vintage-influence:
@@ -262,7 +269,7 @@ Hover lifts enabled buttons by 2px and changes the variant's background over 0.2
 
 ### Cards / Containers
 
-Entry forms use the broadest rounding and 32px padding, reduced to 25px at narrower widths. Influence cards have a pale paper frame, 6px padding, a thin warm border, and clipped cat artwork. Selected influence cards gain an amber outline and lift by 5px; revealed cards are desaturated and reduced to 0.6 opacity.
+Entry forms use the broadest rounding and 32px padding, reduced to 25px at narrower widths. Influence cards have a pale paper frame, 8px padding, a thin warm border, and clipped cat artwork. Selected influence cards gain an amber outline and lift by 5px; revealed cards are desaturated and reduced to 0.6 opacity.
 
 ### Inputs / Fields
 
@@ -307,3 +314,12 @@ Selected influence uses a burgundy outline and the inherited lift; revealed card
 - **Don't** flatten selected, revealed, disabled, and active-turn states into the same treatment.
 - **Don't** substitute flat geometric portraits for the painted Vintage cast or apply its serif headings to Classic.
 
+
+
+## Card fitting and spacing contract (2026-10-28)
+
+Use spacing tokens from src/spacing.css: 4, 8, 16, 24, 32, 40 and 48px, with 0 for resets and auto for centering. Apply this scale to margins, padding and gaps. Preserve border widths, type sizes, card-fan rotations, proportional circular-seat coordinates and other deliberate geometry. Do not quantize automatic centering offsets or fluid content widths.
+
+Cards, role guides and avatars use the shared src/Portrait.tsx SVG viewport over unchanged sprite files. Each viewBox isolates one role panel; xMidYMin slice applies uniform scale and clips excess at the lower/side edges. This preserves natural facial proportions and avoids revealing neighboring sprite panels. Decorative table avatars are aria-hidden and do not represent a player’s hidden card.
+
+Both modes share a two-column influence hand, maximum 336px wide with a 16px gap on desktop and maximum 328px with an 8px gap on mobile. Each card fills its column; art frames keep a 4:5 aspect ratio and captions expand without clipping. The homepage fan keeps decorative overlap but puts complete role names in a separate wrapping legend.

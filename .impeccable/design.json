@@ -601,7 +601,31 @@
         "name": "vintage-compact",
         "value": "420px"
       }
-    ]
+    ],
+    "spacingScale": {
+      "values": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48
+      ],
+      "cssSource": "src/spacing.css",
+      "properties": [
+        "margin",
+        "padding",
+        "gap"
+      ],
+      "exceptions": [
+        "zero resets",
+        "auto centering",
+        "decorative fan overlap and rotation",
+        "proportional circular seating",
+        "type and border sizes"
+      ]
+    }
   },
   "components": [
     {
@@ -610,7 +634,7 @@
       "refersTo": "button-primary",
       "description": "Canonical primary button control.",
       "html": "<button class=\"ds-primary\">Create a room</button>",
-      "css": ".ds-primary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--gold,#e8b86d);color:#172c33;border:1px solid var(--gold,#e8b86d);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-primary:hover:not(:disabled){background:#f7cb87;transform:translateY(-2px)}.ds-primary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-primary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover:not(:disabled){transform:none}}"
+      "css": ".ds-primary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--gold,#e8b86d);color:#172c33;border:1px solid var(--gold,#e8b86d);border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-primary:hover:not(:disabled){background:#f7cb87;transform:translateY(-2px)}.ds-primary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-primary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Secondary Button",
@@ -618,7 +642,7 @@
       "refersTo": "button-secondary",
       "description": "Canonical secondary button control.",
       "html": "<button class=\"ds-secondary\">Join room</button>",
-      "css": ".ds-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--green,#a6c8bc);color:#142b2d;border:1px solid var(--green,#a6c8bc);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-secondary:hover:not(:disabled){background:#c7dfd5;transform:translateY(-2px)}.ds-secondary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-secondary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}.ds-secondary:hover:not(:disabled){transform:none}}"
+      "css": ".ds-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--green,#a6c8bc);color:#142b2d;border:1px solid var(--green,#a6c8bc);border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-secondary:hover:not(:disabled){background:#c7dfd5;transform:translateY(-2px)}.ds-secondary:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-secondary:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}.ds-secondary:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Quiet Button",
@@ -626,7 +650,7 @@
       "refersTo": "button-quiet",
       "description": "Canonical quiet button control.",
       "html": "<button class=\"ds-quiet\">How to play</button>",
-      "css": ".ds-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;background:transparent;color:var(--ink,#f5eee0);border:1px solid var(--line,#3c5359);border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-quiet:hover:not(:disabled){background:var(--surface,#1e3540);transform:translateY(-2px)}.ds-quiet:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-quiet:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-quiet{transition:none}.ds-quiet:hover:not(:disabled){transform:none}}"
+      "css": ".ds-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;background:transparent;color:var(--ink,#f5eee0);border:1px solid var(--line,#3c5359);border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-quiet:hover:not(:disabled){background:var(--surface,#1e3540);transform:translateY(-2px)}.ds-quiet:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-quiet:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-quiet{transition:none}.ds-quiet:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Danger Button",
@@ -634,7 +658,7 @@
       "refersTo": "button-danger",
       "description": "Canonical danger button control.",
       "html": "<button class=\"ds-danger\">Leave room</button>",
-      "css": ".ds-danger{font-family:Geist,Arial,sans-serif;font-size:14px;background:#663a3b;color:#fff3ed;border:1px solid #be7c76;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-danger:hover:not(:disabled){background:#663a3b;transform:translateY(-2px)}.ds-danger:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-danger:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-danger{transition:none}.ds-danger:hover:not(:disabled){transform:none}}"
+      "css": ".ds-danger{font-family:Geist,Arial,sans-serif;font-size:14px;background:#663a3b;color:#fff3ed;border:1px solid #be7c76;border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .2s,transform .2s}.ds-danger:hover:not(:disabled){background:#663a3b;transform:translateY(-2px)}.ds-danger:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-danger:disabled{cursor:not-allowed;opacity:.45}@media(prefers-reduced-motion:reduce){.ds-danger{transition:none}.ds-danger:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Name Field",
@@ -642,7 +666,7 @@
       "refersTo": "input",
       "description": "Inset field for a player name.",
       "html": "<label class=\"ds-label\">Your name<input class=\"ds-field\" placeholder=\"Enter your name\"></label>",
-      "css": ".ds-label{font-family:Geist,Arial,sans-serif;font-size:14px;display:grid;gap:9px;color:var(--ink,#f5eee0);font-size:13px;font-weight:600}.ds-field{font-family:Geist,Arial,sans-serif;font-size:14px;background:#12242c;color:var(--ink,#f5eee0);border:1px solid #60757a;border-radius:8px;padding:14px 15px;min-height:48px;caret-color:var(--gold,#e8b86d)}.ds-field::placeholder{color:#a0b6b9}.ds-field:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}"
+      "css": ".ds-label{font-family:Geist,Arial,sans-serif;font-size:14px;display:grid;gap:8px;color:var(--ink,#f5eee0);font-size:13px;font-weight:600}.ds-field{font-family:Geist,Arial,sans-serif;font-size:14px;background:#12242c;color:var(--ink,#f5eee0);border:1px solid #60757a;border-radius:8px;padding:16px 16px;min-height:48px;caret-color:var(--gold,#e8b86d)}.ds-field::placeholder{color:#a0b6b9}.ds-field:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}"
     },
     {
       "name": "Room Entry Panel",
@@ -650,14 +674,14 @@
       "refersTo": "entry-card",
       "description": "Ambient raised form container.",
       "html": "<section class=\"ds-entry\"><h2>Your seat awaits.</h2><p>Create a room and invite your friends.</p></section>",
-      "css": ".ds-entry{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--surface,#1e3540);color:var(--ink,#f5eee0);border:1px solid #40555c;border-radius:16px;padding:32px;box-shadow:0 18px 40px #09151c33}.ds-entry h2{font-size:30px;letter-spacing:-.025em;margin:14px 0 8px}.ds-entry p{font-size:14px;color:var(--muted,#b5c9ca);line-height:1.65}"
+      "css": ".ds-entry{font-family:Geist,Arial,sans-serif;font-size:14px;background:var(--surface,#1e3540);color:var(--ink,#f5eee0);border:1px solid #40555c;border-radius:16px;padding:32px;box-shadow:0 18px 40px #09151c33}.ds-entry h2{font-size:30px;letter-spacing:-.025em;margin:16px 0 8px}.ds-entry p{font-size:14px;color:var(--muted,#b5c9ca);line-height:1.65}"
     },
     {
       "name": "Table Navigation",
       "kind": "nav",
       "description": "Compact brand and rules access.",
       "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#cat-coup\">Cat Coup<span>•</span></a><button class=\"ds-rules\">How to play</button></nav>",
-      "css": ".ds-nav{font-family:Geist,Arial,sans-serif;font-size:14px;display:flex;align-items:center;justify-content:space-between;height:100px;gap:20px;border-bottom:1px solid var(--line,#3c5359);color:var(--ink,#f5eee0)}.ds-brand{font-size:24px;font-weight:800;letter-spacing:-.04em;color:inherit;text-decoration:none}.ds-brand span{color:var(--gold,#e8b86d)}.ds-rules{font-family:Geist,Arial,sans-serif;font-size:14px;border:1px solid var(--line,#3c5359);border-radius:9px;padding:13px 20px;color:inherit;background:transparent;min-height:44px;font-weight:600;cursor:pointer;transition:background .2s}.ds-rules:hover{background:var(--surface,#1e3540)}.ds-rules:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-brand:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}@media(max-width:700px){.ds-nav{height:80px}.ds-brand{font-size:21px}}@media(prefers-reduced-motion:reduce){.ds-rules{transition:none}}"
+      "css": ".ds-nav{font-family:Geist,Arial,sans-serif;font-size:14px;display:flex;align-items:center;justify-content:space-between;height:100px;gap:24px;border-bottom:1px solid var(--line,#3c5359);color:var(--ink,#f5eee0)}.ds-brand{font-size:24px;font-weight:800;letter-spacing:-.04em;color:inherit;text-decoration:none}.ds-brand span{color:var(--gold,#e8b86d)}.ds-rules{font-family:Geist,Arial,sans-serif;font-size:14px;border:1px solid var(--line,#3c5359);border-radius:9px;padding:16px 24px;color:inherit;background:transparent;min-height:44px;font-weight:600;cursor:pointer;transition:background .2s}.ds-rules:hover{background:var(--surface,#1e3540)}.ds-rules:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}.ds-brand:focus-visible{outline:3px solid var(--gold,#e8b86d);outline-offset:4px}@media(max-width:700px){.ds-nav{height:80px}.ds-brand{font-size:21px}}@media(prefers-reduced-motion:reduce){.ds-rules{transition:none}}"
     },
     {
       "name": "Current Decision",
@@ -665,7 +689,7 @@
       "refersTo": "decision-panel",
       "description": "Current game question and supporting instruction.",
       "html": "<section class=\"ds-decision\"><h2>Your turn</h2><p>Choose an action. You may claim any character.</p></section>",
-      "css": ".ds-decision{font-family:Geist,Arial,sans-serif;font-size:14px;background:#213d45;border:1px solid #52716e;border-radius:12px;padding:24px 28px;min-height:128px;color:var(--ink,#f5eee0)}.ds-decision h2{font-size:26px;letter-spacing:-.03em;margin:0 0 8px}.ds-decision p{font-size:13px;line-height:1.65;color:var(--muted,#b5c9ca);max-width:72ch;margin:0}"
+      "css": ".ds-decision{font-family:Geist,Arial,sans-serif;font-size:14px;background:#213d45;border:1px solid #52716e;border-radius:12px;padding:24px 32px;min-height:128px;color:var(--ink,#f5eee0)}.ds-decision h2{font-size:26px;letter-spacing:-.03em;margin:0 0 8px}.ds-decision p{font-size:13px;line-height:1.65;color:var(--muted,#b5c9ca);max-width:72ch;margin:0}"
     },
     {
       "name": "Vintage Primary Button",
@@ -673,7 +697,7 @@
       "refersTo": "vintage-button-primary",
       "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
       "html": "<button class=\"ds-vintage-primary\">I’m ready</button>",
-      "css": ".ds-vintage-primary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#963c31;color:#fff2d6;box-shadow:0 4px 7px #49342622;}.ds-vintage-primary:hover:not(:disabled){background:#7c3028;transform:translateY(-2px)}.ds-vintage-primary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-primary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-primary{transition:none}.ds-vintage-primary:hover:not(:disabled){transform:none}}"
+      "css": ".ds-vintage-primary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#963c31;color:#fff2d6;box-shadow:0 4px 7px #49342622;}.ds-vintage-primary:hover:not(:disabled){background:#7c3028;transform:translateY(-2px)}.ds-vintage-primary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-primary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-primary{transition:none}.ds-vintage-primary:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Vintage Secondary Button",
@@ -681,7 +705,7 @@
       "refersTo": "vintage-button-secondary",
       "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
       "html": "<button class=\"ds-vintage-secondary\">Add test bot</button>",
-      "css": ".ds-vintage-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#315c50;color:#fff2d6;border-color:#263e34;}.ds-vintage-secondary:hover:not(:disabled){background:#24493f;transform:translateY(-2px)}.ds-vintage-secondary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-secondary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-secondary{transition:none}.ds-vintage-secondary:hover:not(:disabled){transform:none}}"
+      "css": ".ds-vintage-secondary{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#315c50;color:#fff2d6;border-color:#263e34;}.ds-vintage-secondary:hover:not(:disabled){background:#24493f;transform:translateY(-2px)}.ds-vintage-secondary:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-secondary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-secondary{transition:none}.ds-vintage-secondary:hover:not(:disabled){transform:none}}"
     },
     {
       "name": "Vintage Quiet Button",
@@ -689,7 +713,7 @@
       "refersTo": "vintage-button-quiet",
       "description": "Room-scoped printed-storybook control; Classic keeps its existing variant.",
       "html": "<button class=\"ds-vintage-quiet\">How to play</button>",
-      "css": ".ds-vintage-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:13px 20px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#f6ebd2;color:#493426;border-color:#957b5e;}.ds-vintage-quiet:hover:not(:disabled){background:#e8d5ad;transform:translateY(-2px)}.ds-vintage-quiet:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-quiet:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-quiet{transition:none}.ds-vintage-quiet:hover:not(:disabled){transform:none}}"
+      "css": ".ds-vintage-quiet{font-family:Geist,Arial,sans-serif;font-size:14px;border:2px solid #493426;border-radius:9px;padding:16px 24px;font-weight:600;min-height:44px;cursor:pointer;transition:background .16s,transform .16s,box-shadow .16s;background:#f6ebd2;color:#493426;border-color:#957b5e;}.ds-vintage-quiet:hover:not(:disabled){background:#e8d5ad;transform:translateY(-2px)}.ds-vintage-quiet:focus-visible{outline:3px solid #23594e;outline-offset:4px}.ds-vintage-quiet:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-vintage-quiet{transition:none}.ds-vintage-quiet:hover:not(:disabled){transform:none}}"
     }
   ],
   "narrative": {

@@ -7,13 +7,13 @@ const artwork = new Set();
 for (const name of files) {
   if (!/\.(js|css)$/.test(name)) continue;
   const bytes = await readFile(resolve('dist/assets', name));
+  for (const match of bytes.toString().matchAll(/\/assets\/(?:cat-court-lossless|vintage-court)\.webp/g)) artwork.add(match[0]);
   if (name.endsWith('.js')) javascriptGzip += gzipSync(bytes).length;
   else {
     cssGzip += gzipSync(bytes).length;
-    for (const match of bytes.toString().matchAll(/url\(["']?(\/assets\/(?:cat-court|vintage-court)[^)"']+)/g)) artwork.add(match[1]);
   }
 }
-if (artwork.size !== 2 || !artwork.has('/assets/cat-court-lossless.webp') || !artwork.has('/assets/vintage-court.webp')) throw Error('Expected the Classic and Vintage delivery sprites in production CSS');
+if (artwork.size !== 2 || !artwork.has('/assets/cat-court-lossless.webp') || !artwork.has('/assets/vintage-court.webp')) throw Error('Expected the Classic and Vintage delivery sprites in the production bundle');
 const classicArtworkBytes=(await readFile(resolve('dist/assets/cat-court-lossless.webp'))).length;
 const vintageArtworkBytes=(await readFile(resolve('dist/assets/vintage-court.webp'))).length;
 const artworkBytes=classicArtworkBytes+vintageArtworkBytes;

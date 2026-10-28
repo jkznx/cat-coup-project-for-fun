@@ -1,0 +1,170 @@
+{
+  "samples": 29,
+  "overflow": 0,
+  "pageErrors": [],
+  "portraitScaleRatio": {
+    "min": 1,
+    "max": 1
+  },
+  "gameHands": [
+    {
+      "mode": "classic",
+      "width": 1440,
+      "cards": [
+        {
+          "width": 160,
+          "height": 264.5
+        },
+        {
+          "width": 160,
+          "height": 264.5
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "classic",
+      "width": 1024,
+      "cards": [
+        {
+          "width": 160,
+          "height": 264.5
+        },
+        {
+          "width": 160,
+          "height": 264.5
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "classic",
+      "width": 768,
+      "cards": [
+        {
+          "width": 160,
+          "height": 264.5
+        },
+        {
+          "width": 160,
+          "height": 264.5
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "classic",
+      "width": 390,
+      "cards": [
+        {
+          "width": 160,
+          "height": 264.5
+        },
+        {
+          "width": 160,
+          "height": 264.5
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "cards": [
+        {
+          "width": 140,
+          "height": 239.5
+        },
+        {
+          "width": 140,
+          "height": 239.5
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "vintage",
+      "width": 1440,
+      "cards": [
+        {
+          "width": 160,
+          "height": 266.78125
+        },
+        {
+          "width": 160,
+          "height": 266.78125
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "vintage",
+      "width": 1024,
+      "cards": [
+        {
+          "width": 160,
+          "height": 266.78125
+        },
+        {
+          "width": 160,
+          "height": 266.78125
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "vintage",
+      "width": 768,
+      "cards": [
+        {
+          "width": 160,
+          "height": 266.78125
+        },
+        {
+          "width": 160,
+          "height": 266.78125
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "vintage",
+      "width": 390,
+      "cards": [
+        {
+          "width": 160,
+          "height": 261
+        },
+        {
+          "width": 160,
+          "height": 261
+        }
+      ],
+      "paired": true
+    },
+    {
+      "mode": "vintage",
+      "width": 320,
+      "cards": [
+        {
+          "width": 140,
+          "height": 236
+        },
+        {
+          "width": 140,
+          "height": 236
+        }
+      ],
+      "paired": true
+    }
+  ],
+  "spacingScale": [
+    4,
+    8,
+    16,
+    24,
+    32,
+    40,
+    48
+  ]
+}

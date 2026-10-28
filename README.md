@@ -85,3 +85,9 @@ Vintage is an original Cat Coup house variant, not an official Coup expansion. T
 ## Vintage storybook theme
 
 Vintage rooms use a warm paper/ink skin with self-hosted Bree Serif headings, burgundy actions, teal voice controls and a wooden round table. Classic retains the Midnight Cat Lounge skin. The original five portraits remain byte-for-byte unchanged; Merchant, Bandit and Guardian use a separately generated painted sprite. See public/assets/PROVENANCE.md for origin and delivery details. The three new portraits add 199,714 bytes; their delivery budget is 250KB, separate from the unchanged Classic artwork cap. Mobile Vintage hands keep two cards side-by-side. Keyboard focus, disabled/selected/revealed states and hold-to-talk are retained.
+
+## Card fit and spacing
+
+The shared `src/Portrait.tsx` isolates sprite panels with an SVG viewBox and `xMidYMin slice`. Images scale uniformly and crop rather than stretch; the original files and bytes are unchanged. Both modes have responsive paired hands down to 320px. Homepage role names live in a readable wrapping legend rather than clipped fan captions.
+
+`src/spacing.css` defines the confirmed scale: **4, 8, 16, 24, 32, 40, 48px**. Main margin, padding and gap declarations use these tokens. Borders, font sizes, automatic centering, fluid widths and deliberate table/fan geometry are separate concerns. `scripts/card-layout-audit.mjs` measures 29 viewport/surface combinations and checks uniform SVG transforms, paired cards, overflow and fixed spacing values.
