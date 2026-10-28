@@ -22,6 +22,8 @@ The public hostname is https://cat-coup.jukrachai-crybaby.space through the Wind
 
 ## Included
 
+Test bots: the room host can select **Add test bot** or **Remove a bot** before dealing. A room still has a maximum of six seats, including bots. Bots are ready automatically; the human host must ready up and deal. They use their own redacted view, take income/tax and coup, accept claims and make truthful blocks, and automatically reveal influence when required. They are basic practice opponents, not a difficulty-tuned AI. Living disconnected humans pause the bots too. Bots remain ready for a rematch and never become host.
+
 - Room creation/joining, ready lobby, host-controlled deal, invite link, rematch.
 - Income, foreign aid, coup, tax, assassination, steal, exchange, challenge and block decisions.
 - Server-controlled legal moves, coin costs, card replacement, influence loss, elimination and victory.

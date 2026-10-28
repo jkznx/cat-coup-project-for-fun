@@ -22,7 +22,7 @@ const actions: {id:Action; label:string; detail:string; role?:Role; cost:number;
   {id:'steal',label:'Steal',detail:'Take up to 2 from a rival',role:'Captain',cost:0,targeted:true},
   {id:'exchange',label:'Exchange',detail:'Draw 2 and choose what to keep',role:'Ambassador',cost:0},
 ];
-interface Room { code:string; host:string; me:string; draining?:boolean; seats:{id:string;name:string;ready:boolean;connected:boolean}[]; game:View|null }
+interface Room { code:string; host:string; me:string; draining?:boolean; seats:{id:string;name:string;ready:boolean;connected:boolean;bot?:boolean}[]; game:View|null }
 interface Session {code:string;token:string;name:string}
 type Reply = {ok:boolean;error?:string} & Partial<Session>;
 const socket = io({autoConnect:false});
@@ -75,6 +75,7 @@ function App() {
     <header className="topbar"><a className="brand" href="/" onClick={e=>{if(room)e.preventDefault();}}><CatMark/><span>CAT COUP<span className="brand-dot">.</span></span></a><div className="nav-right"><span className={`connection ${connected?'online':''}`}>{connected?'Table server connected':'Connecting…'}</span><button className="quiet" onClick={()=>help.current?.showModal()}>How to play</button></div></header>
     {error && <div role="alert" className="alert">{error}<button aria-label="Dismiss error" onClick={()=>setError('')}>Dismiss</button></div>}
     {notice && <div role="status" className="notice">{notice}</div>}
+    {room && !game && room.host===room.me && <div className="notice"><span>Practice with test bots. Bots are ready automatically and use their own private hand.</span><div><button className="secondary" disabled={disabled||room.draining||room.seats.length>=6} onClick={()=>request('add-bot')}>Add test bot</button>{room.seats.some(s=>s.bot)&&<button className="quiet" disabled={disabled} onClick={()=>request('remove-bot',{id:room.seats.filter(s=>s.bot).at(-1)!.id})}>Remove a bot</button>}</div></div>}
     {room?.draining && <div role="status" className="notice">An update is pending. Current games can finish; new games are paused. Lobby rooms will reset when the update begins.</div>}
     {!room ? <main className="welcome">
       <section className="intro"><h1>Nine lives.<br/><span>Two secrets.</span></h1><p>A court of cunning cats. Bluff, steal, and outwit your friends. Only one gets the crown.</p><div className="hero-fan" aria-label="The five cat characters">{roles.map((role,i)=><div className={`fan-card fan-${i}`} key={role}><Influence card={{role,revealed:false}}/></div>)}</div><p className="table-note">2–6 friends <span>·</span> Private rooms <span>·</span> A very suspicious amount of purring</p></section>

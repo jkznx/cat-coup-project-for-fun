@@ -1,5 +1,14 @@
 # Verification record
 
+## Test bots: 2026-10-28
+
+- Host-only lobby add/remove controls; maximum six total seats. Bots are automatically ready and remain ready for rematches. Only human seats can become host.
+- Bot decisions receive the same redacted `snapshot` as a human player, and execute through the existing `command` validator. They use income/tax/coup, pass claims, make truthful blocks and resolve their own influence loss. These are basic practice bots.
+- 15 tests passed. The added policy test completed 25 full games across 2–6 seats while checking hidden-hand redaction and card/coin conservation. Socket integration checked host permissions, removal, bot turns and pause/resume around a disconnected living human.
+- Type checking, production build and performance budgets passed. After the user approved resetting current rooms, the Node server was restarted as `local-test-bots` on port 3001.
+- Through the public HTTPS hostname, browser checks created a room, added a bot, removed it and added it again. Practice room `167CBE` was left open for the user with a ready bot. This room is ephemeral and disappears on restart. Local screenshot: `.impeccable/review/bot-lobby.png`.
+- Docker migration and scheduled CD remain paused.
+
 Verified 2026-10-26, Asia/Bangkok.
 
 ## Update: 2026-10-27

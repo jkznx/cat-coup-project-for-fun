@@ -6,10 +6,11 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { Server, Socket } from 'socket.io';
 import { command, createGame, snapshot, type Game, type Command } from './game.js';
+import { botMove } from './bot.js';
 
-interface Seat { id: string; name: string; token: string; socket?: string; ready: boolean }
-interface Room { code: string; host: string; seats: Seat[]; game?: Game; touched: number }
-export function createApp(options: { adminToken?: string; version?: string; startDrained?: boolean } = {}) {
+interface Seat { id: string; name: string; token: string; socket?: string; ready: boolean; bot?: boolean }
+interface Room { code: string; host: string; seats: Seat[]; game?: Game; touched: number; botTimer?: ReturnType<typeof setTimeout> }
+export function createApp(options: { adminToken?: string; version?: string; startDrained?: boolean; botDelayMs?: number } = {}) {
   const app = express(), http = createServer(app);
   const io = new Server(http, { maxHttpBufferSize: 8192 });
   const rooms = new Map<string, Room>();
@@ -33,12 +34,28 @@ export function createApp(options: { adminToken?: string; version?: string; star
   app.disable('x-powered-by');
   app.get('/health', (_req, res) => res.set('Cache-Control', 'no-store').json({ ok: true, version }));
   app.use(express.static(resolve('dist')));
+  const paused = (r: Room) => r.seats.some(s => !s.bot && !s.socket && r.game?.players.find(p => p.id === s.id)?.cards.some(c => !c.revealed));
+  const scheduleBots = (r: Room) => {
+    if (!r.game || paused(r)) return;
+    for (const seat of r.seats.filter(s => s.bot)) {
+      const move = botMove(snapshot(r.game, seat.id), seat.id);
+      if (!move) continue;
+      r.botTimer = setTimeout(() => {
+        r.botTimer = undefined;
+        if (!r.game || paused(r) || rooms.get(r.code) !== r) return;
+        r.game = command(r.game, seat.id, move); r.touched = Date.now(); broadcast(r);
+      }, options.botDelayMs ?? 800);
+      r.botTimer.unref(); break;
+    }
+  };
   const broadcast = (r: Room) => {
+    clearTimeout(r.botTimer); r.botTimer = undefined;
     for (const s of r.seats) if (s.socket) io.to(s.socket).emit('room', {
       code: r.code, host: r.host, me: s.id, draining,
-      seats: r.seats.map(({ id, name, ready, socket }) => ({ id, name, ready, connected: !!socket })),
+      seats: r.seats.map(({ id, name, ready, socket, bot }) => ({ id, name, ready, bot: !!bot, connected: !!socket || !!bot })),
       game: r.game ? snapshot(r.game, s.id) : null,
     });
+    scheduleBots(r);
   };
   io.on('connection', (socket: Socket) => {
     let binding: { code: string; id: string } | undefined;
@@ -88,30 +105,42 @@ export function createApp(options: { adminToken?: string; version?: string; star
       seat.socket = socket.id; binding = { code: room.code, id: seat.id }; room.touched = Date.now(); broadcast(room);
     });
     handle('ready', () => { const { room, seat } = member(); if (room.game) throw Error('The game has started.'); seat.ready = !seat.ready; room.touched = Date.now(); broadcast(room); });
+    handle('add-bot', () => {
+      const { room, seat } = member();
+      if (draining || room.host !== seat.id || room.game || room.seats.length >= 6) throw Error('Only the host can add a test bot to an open lobby (six seats maximum).');
+      let number = 1; while (room.seats.some(s => s.name === `Test Cat ${number}`)) number++;
+      room.seats.push({ id: randomUUID(), name: `Test Cat ${number}`, token: '', ready: true, bot: true });
+      room.touched = Date.now(); broadcast(room);
+    });
+    handle('remove-bot', data => {
+      const { room, seat } = member();
+      if (room.host !== seat.id || room.game || !room.seats.some(s => s.id === data.id && s.bot)) throw Error('Only the host can remove a bot in the lobby.');
+      room.seats = room.seats.filter(s => s.id !== data.id); room.touched = Date.now(); broadcast(room);
+    });
     handle('start', () => {
       if (draining) throw Error('An update is pending. New games are temporarily paused.');
       const { room, seat } = member();
-      if (seat.id !== room.host || room.game || room.seats.length < 2 || !room.seats.every(s => s.ready && s.socket)) throw Error('The host can start when 2–6 connected players are ready.');
+      if (seat.id !== room.host || room.game || room.seats.length < 2 || !room.seats.every(s => s.ready && (s.socket || s.bot))) throw Error('The host can start when 2–6 connected players are ready.');
       room.game = createGame(room.seats.map(({ id, name }) => ({ id, name }))); room.touched = Date.now(); broadcast(room);
     });
     handle('move', data => {
       const { room, seat } = member();
       if (!room.game) throw Error('The game has not started.');
       if (data.revision !== room.game.revision) throw Error('The table changed. Review it and choose again.');
-      if (room.seats.some(s => !s.socket && room.game!.players.find(p => p.id === s.id)?.cards.some(c => !c.revealed))) throw Error('Waiting for a disconnected player to return.');
+      if (paused(room)) throw Error('Waiting for a disconnected player to return.');
       room.game = command(room.game, seat.id, data.command as Command); room.touched = Date.now(); broadcast(room);
     });
     handle('rematch', () => {
       const { room, seat } = member();
       if (room.host !== seat.id || room.game?.phase !== 'over') throw Error('Only the host can open a rematch after the game.');
-      room.game = undefined; room.seats.forEach(s => { s.ready = false; }); room.touched = Date.now(); broadcast(room);
+      room.game = undefined; room.seats.forEach(s => { s.ready = !!s.bot; }); room.touched = Date.now(); broadcast(room);
     });
     handle('leave', () => {
       const { room, seat } = member();
       if (room.game && room.game.phase !== 'over') throw Error('A live seat is preserved. Close this tab to disconnect; return to reconnect.');
       room.seats = room.seats.filter(s => s.id !== seat.id); binding = undefined;
-      if (!room.seats.length) rooms.delete(room.code);
-      else { if (room.host === seat.id) room.host = room.seats[0].id; room.touched = Date.now(); broadcast(room); }
+      if (!room.seats.some(s => !s.bot)) { clearTimeout(room.botTimer); rooms.delete(room.code); }
+      else { if (room.host === seat.id) room.host = room.seats.find(s => !s.bot)!.id; room.touched = Date.now(); broadcast(room); }
     });
     socket.on('disconnect', () => {
       if (!binding) return;
@@ -122,7 +151,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
   const cleanup = setInterval(() => {
     for (const [code, room] of rooms) if ((!room.game || room.game.phase === 'over') && Date.now() - room.touched > 6 * 60 * 60 * 1000 && room.seats.every(s => !s.socket)) rooms.delete(code);
   }, 60_000); cleanup.unref();
-  http.on('close', () => clearInterval(cleanup));
+  http.on('close', () => { clearInterval(cleanup); for (const r of rooms.values()) clearTimeout(r.botTimer); });
   return { http, io, admin };
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
