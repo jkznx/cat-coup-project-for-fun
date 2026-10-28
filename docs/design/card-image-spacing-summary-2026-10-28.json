@@ -1,0 +1,672 @@
+{
+  "coverage": {
+    "samples": 29,
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "horizontalOverflow": 0,
+    "pageErrors": []
+  },
+  "assets": {
+    "classic": {
+      "sheet": [
+        2172,
+        724
+      ],
+      "panels": 5
+    },
+    "vintage": {
+      "sheet": [
+        960,
+        640
+      ],
+      "panels": 3
+    }
+  },
+  "gameCards": [
+    {
+      "mode": "classic",
+      "viewport": 1440,
+      "hand": [
+        {
+          "width": 160,
+          "height": 266,
+          "top": 847,
+          "padding": "6px",
+          "art": {
+            "width": 146,
+            "height": 184
+          }
+        },
+        {
+          "width": 160,
+          "height": 266,
+          "top": 847,
+          "padding": "6px",
+          "art": {
+            "width": 146,
+            "height": 184
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Duke cat portrait",
+          "context": "hand",
+          "width": 146,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3360957642725599,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3224637681159421,
+          "resolutionAtDpr2": {
+            "horizontal": 1.4876712328767123,
+            "vertical": 1.9673913043478262
+          }
+        },
+        {
+          "role": "Captain cat portrait",
+          "context": "hand",
+          "width": 146,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3360957642725599,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3224637681159421,
+          "resolutionAtDpr2": {
+            "horizontal": 1.4876712328767123,
+            "vertical": 1.9673913043478262
+          }
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "viewport": 1024,
+      "hand": [
+        {
+          "width": 160,
+          "height": 266,
+          "top": 651,
+          "padding": "6px",
+          "art": {
+            "width": 146,
+            "height": 184
+          }
+        },
+        {
+          "width": 160,
+          "height": 266,
+          "top": 651,
+          "padding": "6px",
+          "art": {
+            "width": 146,
+            "height": 184
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Duke cat portrait",
+          "context": "hand",
+          "width": 146,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3360957642725599,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3224637681159421,
+          "resolutionAtDpr2": {
+            "horizontal": 1.4876712328767123,
+            "vertical": 1.9673913043478262
+          }
+        },
+        {
+          "role": "Captain cat portrait",
+          "context": "hand",
+          "width": 146,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3360957642725599,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3224637681159421,
+          "resolutionAtDpr2": {
+            "horizontal": 1.4876712328767123,
+            "vertical": 1.9673913043478262
+          }
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "viewport": 768,
+      "hand": [
+        {
+          "width": 135,
+          "height": 237,
+          "top": 597.5625,
+          "padding": "6px",
+          "art": {
+            "width": 121,
+            "height": 155
+          }
+        },
+        {
+          "width": 135,
+          "height": 237,
+          "top": 597.5625,
+          "padding": "6px",
+          "art": {
+            "width": 121,
+            "height": 155
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Duke cat portrait",
+          "context": "hand",
+          "width": 121,
+          "height": 155,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.27854511970534074,
+          "scaleY": 0.21408839779005526,
+          "stretchRatio": 1.3010752688172045,
+          "resolutionAtDpr2": {
+            "horizontal": 1.7950413223140496,
+            "vertical": 2.335483870967742
+          }
+        },
+        {
+          "role": "Captain cat portrait",
+          "context": "hand",
+          "width": 121,
+          "height": 155,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.27854511970534074,
+          "scaleY": 0.21408839779005526,
+          "stretchRatio": 1.3010752688172045,
+          "resolutionAtDpr2": {
+            "horizontal": 1.7950413223140496,
+            "vertical": 2.335483870967742
+          }
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "viewport": 390,
+      "hand": [
+        {
+          "width": 145,
+          "height": 252,
+          "top": 286.875,
+          "padding": "6px",
+          "art": {
+            "width": 131,
+            "height": 170
+          }
+        },
+        {
+          "width": 145,
+          "height": 252,
+          "top": 286.875,
+          "padding": "6px",
+          "art": {
+            "width": 131,
+            "height": 170
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Duke cat portrait",
+          "context": "hand",
+          "width": 131,
+          "height": 170,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3015653775322284,
+          "scaleY": 0.23480662983425415,
+          "stretchRatio": 1.2843137254901962,
+          "resolutionAtDpr2": {
+            "horizontal": 1.6580152671755723,
+            "vertical": 2.1294117647058823
+          }
+        },
+        {
+          "role": "Captain cat portrait",
+          "context": "hand",
+          "width": 131,
+          "height": 170,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3015653775322284,
+          "scaleY": 0.23480662983425415,
+          "stretchRatio": 1.2843137254901962,
+          "resolutionAtDpr2": {
+            "horizontal": 1.6580152671755723,
+            "vertical": 2.1294117647058823
+          }
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "viewport": 320,
+      "hand": [
+        {
+          "width": 145,
+          "height": 252,
+          "top": 216.875,
+          "padding": "6px",
+          "art": {
+            "width": 131,
+            "height": 170
+          }
+        },
+        {
+          "width": 145,
+          "height": 252,
+          "top": 480.875,
+          "padding": "6px",
+          "art": {
+            "width": 131,
+            "height": 170
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Duke cat portrait",
+          "context": "hand",
+          "width": 131,
+          "height": 170,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3015653775322284,
+          "scaleY": 0.23480662983425415,
+          "stretchRatio": 1.2843137254901962,
+          "resolutionAtDpr2": {
+            "horizontal": 1.6580152671755723,
+            "vertical": 2.1294117647058823
+          }
+        },
+        {
+          "role": "Captain cat portrait",
+          "context": "hand",
+          "width": 131,
+          "height": 170,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.3015653775322284,
+          "scaleY": 0.23480662983425415,
+          "stretchRatio": 1.2843137254901962,
+          "resolutionAtDpr2": {
+            "horizontal": 1.6580152671755723,
+            "vertical": 2.1294117647058823
+          }
+        }
+      ]
+    },
+    {
+      "mode": "vintage",
+      "viewport": 1440,
+      "hand": [
+        {
+          "width": 160,
+          "height": 286.171875,
+          "top": 692,
+          "padding": "6px",
+          "art": {
+            "width": 144,
+            "height": 184
+          }
+        },
+        {
+          "width": 160,
+          "height": 286.171875,
+          "top": 692,
+          "padding": "6px",
+          "art": {
+            "width": 144,
+            "height": 184
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Contessa cat portrait",
+          "context": "hand",
+          "width": 144,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.33149171270718236,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3043478260869565,
+          "resolutionAtDpr2": {
+            "horizontal": 1.5083333333333333,
+            "vertical": 1.9673913043478262
+          }
+        },
+        {
+          "role": "Bandit cat portrait",
+          "context": "hand",
+          "width": 144,
+          "height": 184,
+          "background": "300% 100%",
+          "sourcePanel": [
+            320,
+            640
+          ],
+          "scaleX": 0.45,
+          "scaleY": 0.2875,
+          "stretchRatio": 1.565217391304348,
+          "resolutionAtDpr2": {
+            "horizontal": 1.1111111111111112,
+            "vertical": 1.7391304347826086
+          }
+        }
+      ]
+    },
+    {
+      "mode": "vintage",
+      "viewport": 1024,
+      "hand": [
+        {
+          "width": 160,
+          "height": 286.171875,
+          "top": 558,
+          "padding": "6px",
+          "art": {
+            "width": 144,
+            "height": 184
+          }
+        },
+        {
+          "width": 160,
+          "height": 286.171875,
+          "top": 558,
+          "padding": "6px",
+          "art": {
+            "width": 144,
+            "height": 184
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Contessa cat portrait",
+          "context": "hand",
+          "width": 144,
+          "height": 184,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.33149171270718236,
+          "scaleY": 0.2541436464088398,
+          "stretchRatio": 1.3043478260869565,
+          "resolutionAtDpr2": {
+            "horizontal": 1.5083333333333333,
+            "vertical": 1.9673913043478262
+          }
+        },
+        {
+          "role": "Bandit cat portrait",
+          "context": "hand",
+          "width": 144,
+          "height": 184,
+          "background": "300% 100%",
+          "sourcePanel": [
+            320,
+            640
+          ],
+          "scaleX": 0.45,
+          "scaleY": 0.2875,
+          "stretchRatio": 1.565217391304348,
+          "resolutionAtDpr2": {
+            "horizontal": 1.1111111111111112,
+            "vertical": 1.7391304347826086
+          }
+        }
+      ]
+    },
+    {
+      "mode": "vintage",
+      "viewport": 768,
+      "hand": [
+        {
+          "width": 135,
+          "height": 257.171875,
+          "top": 504.5625,
+          "padding": "6px",
+          "art": {
+            "width": 119,
+            "height": 155
+          }
+        },
+        {
+          "width": 135,
+          "height": 257.171875,
+          "top": 504.5625,
+          "padding": "6px",
+          "art": {
+            "width": 119,
+            "height": 155
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Contessa cat portrait",
+          "context": "hand",
+          "width": 119,
+          "height": 155,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.27394106813996316,
+          "scaleY": 0.21408839779005526,
+          "stretchRatio": 1.2795698924731183,
+          "resolutionAtDpr2": {
+            "horizontal": 1.8252100840336134,
+            "vertical": 2.335483870967742
+          }
+        },
+        {
+          "role": "Bandit cat portrait",
+          "context": "hand",
+          "width": 119,
+          "height": 155,
+          "background": "300% 100%",
+          "sourcePanel": [
+            320,
+            640
+          ],
+          "scaleX": 0.371875,
+          "scaleY": 0.2421875,
+          "stretchRatio": 1.535483870967742,
+          "resolutionAtDpr2": {
+            "horizontal": 1.3445378151260505,
+            "vertical": 2.064516129032258
+          }
+        }
+      ]
+    },
+    {
+      "mode": "vintage",
+      "viewport": 390,
+      "hand": [
+        {
+          "width": 170,
+          "height": 269.5,
+          "top": 203.875,
+          "padding": "6px",
+          "art": {
+            "width": 154,
+            "height": 193
+          }
+        },
+        {
+          "width": 170,
+          "height": 269.5,
+          "top": 203.875,
+          "padding": "6px",
+          "art": {
+            "width": 154,
+            "height": 193
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Contessa cat portrait",
+          "context": "hand",
+          "width": 154,
+          "height": 192.5,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.35451197053407,
+          "scaleY": 0.26588397790055246,
+          "stretchRatio": 1.3333333333333337,
+          "resolutionAtDpr2": {
+            "horizontal": 1.4103896103896103,
+            "vertical": 1.8805194805194805
+          }
+        },
+        {
+          "role": "Bandit cat portrait",
+          "context": "hand",
+          "width": 154,
+          "height": 192.5,
+          "background": "300% 100%",
+          "sourcePanel": [
+            320,
+            640
+          ],
+          "scaleX": 0.48125,
+          "scaleY": 0.30078125,
+          "stretchRatio": 1.6,
+          "resolutionAtDpr2": {
+            "horizontal": 1.0389610389610389,
+            "vertical": 1.6623376623376624
+          }
+        }
+      ]
+    },
+    {
+      "mode": "vintage",
+      "viewport": 320,
+      "hand": [
+        {
+          "width": 135,
+          "height": 239.75,
+          "top": 146.875,
+          "padding": "6px",
+          "art": {
+            "width": 119,
+            "height": 149
+          }
+        },
+        {
+          "width": 135,
+          "height": 239.75,
+          "top": 146.875,
+          "padding": "6px",
+          "art": {
+            "width": 119,
+            "height": 149
+          }
+        }
+      ],
+      "images": [
+        {
+          "role": "Contessa cat portrait",
+          "context": "hand",
+          "width": 119,
+          "height": 148.75,
+          "background": "500% 100%",
+          "sourcePanel": [
+            434.4,
+            724
+          ],
+          "scaleX": 0.27394106813996316,
+          "scaleY": 0.20545580110497239,
+          "stretchRatio": 1.3333333333333333,
+          "resolutionAtDpr2": {
+            "horizontal": 1.8252100840336134,
+            "vertical": 2.433613445378151
+          }
+        },
+        {
+          "role": "Bandit cat portrait",
+          "context": "hand",
+          "width": 119,
+          "height": 148.75,
+          "background": "300% 100%",
+          "sourcePanel": [
+            320,
+            640
+          ],
+          "scaleX": 0.371875,
+          "scaleY": 0.232421875,
+          "stretchRatio": 1.6,
+          "resolutionAtDpr2": {
+            "horizontal": 1.3445378151260505,
+            "vertical": 2.1512605042016806
+          }
+        }
+      ]
+    }
+  ]
+}
