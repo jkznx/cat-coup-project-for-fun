@@ -46,10 +46,20 @@ pnpm test
 pnpm build
 ```
 
-Eleven automated tests cover rules and the Socket.IO boundary, including complete 2–6 player games, card/coin conservation, assassination edge cases, private hands, readiness, turn validation and reconnection. The browser walkthrough covers 1440×1000 and 390×844 layouts, create/join/ready/deal, income, tax, refresh, hand visibility and the rules dialog. To rerun it, install Playwright separately, make Edge available, start the production server, and run `node tests/browser-check.mjs`. Alternatively set `PLAYWRIGHT_MODULE` to an installed Playwright package path. Review captures/results are local files under `.impeccable/review/` and are ignored by Git.
+Sixteen automated tests cover rules and the Socket.IO boundary, including complete 2–6 player games, card/coin conservation, assassination edge cases, private hands, readiness, turn validation and reconnection. The browser walkthrough covers 1440×1000 and 390×844 layouts, create/join/ready/deal, income, tax, refresh, hand visibility and the rules dialog. To rerun it, install Playwright separately, make Edge available, start the production server, and run `node tests/browser-check.mjs`. Alternatively set `PLAYWRIGHT_MODULE` to an installed Playwright package path. Review captures/results are local files under `.impeccable/review/` and are ignored by Git.
 
 ## Source and credits
 
 Game design: Rikki Tahta / La Mame Games. Rules reference: [Coup rulebook](https://www.qugs.org/rules/r131357.pdf). This independent fan prototype uses original cat artwork and interface text. The original game’s illustrations and branding are not included. Artwork provenance is recorded in `public/assets/PROVENANCE.md`.
 
 Source layout: `server/game.ts` holds the rules and redacted views; `server/index.ts` handles rooms and sockets; `src/main.tsx` is the React UI; `src/style.css` owns the visual system.
+
+## Circular table and room voice
+
+Players sit around a circular table, with your seat at the bottom. The table shows public coins, remaining influence and the current turn; your private hand remains below it.
+
+Select **Enable voice** and allow microphone access to join room voice. Hold **T** to talk and release it to mute. On a touchscreen, hold the microphone button instead. Leaving the page, switching windows or disabling voice mutes/stops capture. Typing T in an input does not transmit. Every human must opt in; bots do not join voice.
+
+Voice uses WebRTC between room participants; Socket.IO forwards bounded signaling only within the same room. Audio is not recorded by this app or relayed through its Node server. Use headphones to reduce feedback. Voice needs HTTPS (or localhost), microphone permission and a compatible browser. Peer connections can expose network addresses to other room participants. The default uses Cloudflare STUN only; restrictive NAT/firewall networks may need a separately configured TURN relay. The Cloudflare Tunnel serving the game does not itself relay WebRTC audio.
+
+Verification: 16 automated rule/socket tests, production build and asset budgets pass. `tests/table-voice-browser.mjs` verifies two real local WebRTC peers using synthetic microphones, audio packet reception, T and pointer hold/release, blur muting, input typing isolation, device release and six-seat layouts at 320/390/768/1024/1440 px. Run against an isolated localhost server on port 3106 with Playwright and Edge (`PLAYWRIGHT_MODULE` and `BROWSER_CHANNEL=msedge`). This validates local synthetic voice, not every Internet network combination.

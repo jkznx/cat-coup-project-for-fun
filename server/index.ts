@@ -8,7 +8,7 @@ import { Server, Socket } from 'socket.io';
 import { command, createGame, snapshot, type Game, type Command } from './game.js';
 import { botMove } from './bot.js';
 
-interface Seat { id: string; name: string; token: string; socket?: string; ready: boolean; bot?: boolean }
+interface Seat { id: string; name: string; token: string; socket?: string; ready: boolean; bot?: boolean; voice?: boolean }
 interface Room { code: string; host: string; seats: Seat[]; game?: Game; touched: number; botTimer?: ReturnType<typeof setTimeout> }
 export function createApp(options: { adminToken?: string; version?: string; startDrained?: boolean; botDelayMs?: number } = {}) {
   const app = express(), http = createServer(app);
@@ -52,14 +52,14 @@ export function createApp(options: { adminToken?: string; version?: string; star
     clearTimeout(r.botTimer); r.botTimer = undefined;
     for (const s of r.seats) if (s.socket) io.to(s.socket).emit('room', {
       code: r.code, host: r.host, me: s.id, draining,
-      seats: r.seats.map(({ id, name, ready, socket, bot }) => ({ id, name, ready, bot: !!bot, connected: !!socket || !!bot })),
+      seats: r.seats.map(({ id, name, ready, socket, bot, voice }) => ({ id, name, ready, bot: !!bot, voice: !!voice, connected: !!socket || !!bot })),
       game: r.game ? snapshot(r.game, s.id) : null,
     });
     scheduleBots(r);
   };
   io.on('connection', (socket: Socket) => {
     let binding: { code: string; id: string } | undefined;
-    let requests = 0, windowStart = Date.now();
+    let requests = 0, voiceRequests = 0, windowStart = Date.now();
     const member = () => {
       const room = binding && rooms.get(binding.code), seat = room?.seats.find(s => s.id === binding?.id && s.socket === socket.id);
       if (!room || !seat) throw Error('Join a room first.');
@@ -69,8 +69,8 @@ export function createApp(options: { adminToken?: string; version?: string; star
     const handle = (event: string, run: (data: any) => unknown) => socket.on(event, (data, reply) => {
       const respond = typeof reply === 'function' ? reply : () => {};
       try {
-        if (Date.now() - windowStart > 10_000) { requests = 0; windowStart = Date.now(); }
-        if (++requests > 40) throw Error('Too many requests. Wait a few seconds.');
+        if (Date.now() - windowStart > 10_000) { requests = 0; voiceRequests = 0; windowStart = Date.now(); }
+        if (event === 'voice-signal' ? ++voiceRequests > 200 : ++requests > 40) throw Error('Too many requests. Wait a few seconds.');
         respond({ ok: true, ...(run(data ?? {}) as object ?? {}) });
       } catch (e) { respond({ ok: false, error: e instanceof Error ? e.message : 'Unable to complete that request.' }); }
     });
@@ -105,6 +105,18 @@ export function createApp(options: { adminToken?: string; version?: string; star
       seat.socket = socket.id; binding = { code: room.code, id: seat.id }; room.touched = Date.now(); broadcast(room);
     });
     handle('ready', () => { const { room, seat } = member(); if (room.game) throw Error('The game has started.'); seat.ready = !seat.ready; room.touched = Date.now(); broadcast(room); });
+    handle('voice-join', data => {
+      const {room,seat}=member();
+      if (typeof data.enabled !== 'boolean') throw Error('Invalid voice setting.');
+      seat.voice=data.enabled; broadcast(room);
+    });
+    handle('voice-signal', data => {
+      const {room,seat}=member();
+      const target=room.seats.find(s=>s.id===data.to && s.id!==seat.id && s.socket && s.voice && !s.bot);
+      if (!seat.voice || !target || !['offer','answer','ice'].includes(data.kind) || JSON.stringify(data).length>6000) throw Error('Invalid voice destination or signal.');
+      if (data.kind==='ice' ? (!data.payload || typeof data.payload.candidate!=='string') : (!data.payload || typeof data.payload.sdp!=='string' || data.payload.type!==data.kind)) throw Error('Invalid voice payload.');
+      io.to(target.socket!).emit('voice-signal',{from:seat.id,kind:data.kind,payload:data.payload});
+    });
     handle('add-bot', () => {
       const { room, seat } = member();
       if (draining || room.host !== seat.id || room.game || room.seats.length >= 6) throw Error('Only the host can add a test bot to an open lobby (six seats maximum).');
@@ -145,7 +157,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
     socket.on('disconnect', () => {
       if (!binding) return;
       const room = rooms.get(binding.code), seat = room?.seats.find(s => s.id === binding?.id);
-      if (seat?.socket === socket.id && room) { seat.socket = undefined; room.touched = Date.now(); broadcast(room); }
+      if (seat?.socket === socket.id && room) { seat.socket = undefined; seat.voice = false; room.touched = Date.now(); broadcast(room); }
     });
   });
   const cleanup = setInterval(() => {
