@@ -46,7 +46,7 @@ pnpm test
 pnpm build
 ```
 
-Sixteen automated tests cover rules and the Socket.IO boundary, including complete 2–6 player games, card/coin conservation, assassination edge cases, private hands, readiness, turn validation and reconnection. The browser walkthrough covers 1440×1000 and 390×844 layouts, create/join/ready/deal, income, tax, refresh, hand visibility and the rules dialog. To rerun it, install Playwright separately, make Edge available, start the production server, and run `node tests/browser-check.mjs`. Alternatively set `PLAYWRIGHT_MODULE` to an installed Playwright package path. Review captures/results are local files under `.impeccable/review/` and are ignored by Git.
+Twenty-two automated tests cover rules and the Socket.IO boundary, including complete 2–6 player games, card/coin conservation, assassination edge cases, private hands, readiness, turn validation and reconnection. The browser walkthrough covers 1440×1000 and 390×844 layouts, create/join/ready/deal, income, tax, refresh, hand visibility and the rules dialog. To rerun it, install Playwright separately, make Edge available, start the production server, and run `node tests/browser-check.mjs`. Alternatively set `PLAYWRIGHT_MODULE` to an installed Playwright package path. Review captures/results are local files under `.impeccable/review/` and are ignored by Git.
 
 ## Source and credits
 
@@ -62,4 +62,21 @@ Select **Enable voice** and allow microphone access to join room voice. Hold **T
 
 Voice uses WebRTC between room participants; Socket.IO forwards bounded signaling only within the same room. Audio is not recorded by this app or relayed through its Node server. Use headphones to reduce feedback. Voice needs HTTPS (or localhost), microphone permission and a compatible browser. Peer connections can expose network addresses to other room participants. The default uses Cloudflare STUN only; restrictive NAT/firewall networks may need a separately configured TURN relay. The Cloudflare Tunnel serving the game does not itself relay WebRTC audio.
 
-Verification: 16 automated rule/socket tests, production build and asset budgets pass. `tests/table-voice-browser.mjs` verifies two real local WebRTC peers using synthetic microphones, audio packet reception, T and pointer hold/release, blur muting, input typing isolation, device release and six-seat layouts at 320/390/768/1024/1440 px. Run against an isolated localhost server on port 3106 with Playwright and Edge (`PLAYWRIGHT_MODULE` and `BROWSER_CHANNEL=msedge`). This validates local synthetic voice, not every Internet network combination.
+Verification: 22 automated rule/socket tests, production build and asset budgets pass. `tests/table-voice-browser.mjs` verifies two real local WebRTC peers using synthetic microphones, audio packet reception, T and pointer hold/release, blur muting, input typing isolation, device release and six-seat layouts at 320/390/768/1024/1440 px. Run against an isolated localhost server on port 3106 with Playwright and Edge (`PLAYWRIGHT_MODULE` and `BROWSER_CHANNEL=msedge`). This validates local synthetic voice, not every Internet network combination.
+
+## Game modes
+
+The lobby host selects **Classic** (default) or **Vintage** before dealing. Changing mode clears human readiness so everyone can review the rules; bots stay ready. Mode is frozen during a game and retained when opening a rematch lobby.
+
+- **Classic:** Duke, Assassin, Captain, Ambassador, Contessa. Three of each role (15 cards), seven actions.
+- **Vintage:** the Classic five plus Merchant, Bandit and Guardian. Three of each role (24 cards), nine actions. Two starting influences, 50 total coins, the two-player starting-coin rule and the mandatory coup at 10 coins are unchanged.
+
+| Additional Vintage role | Ability |
+| --- | --- |
+| Merchant | Market: take up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
+| Bandit | Plunder: pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only that target can block with Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
+| Guardian | Block Captain's Steal or Bandit's Plunder against yourself. The block can be challenged. Guardian does not block assassination. |
+
+Vintage is an original Cat Coup house variant, not an official Coup expansion. The larger deck changes role probabilities; competitive balance has not been established. New characters use original inline SVG cat illustrations. Rules and block permissions live in `server/roles.ts`; both server and UI use the same catalogue. Bots handle mode-specific blocks and use Merchant when held, but retain their basic practice strategy.
+
+`tests/modes.test.ts` verifies mode isolation, 15/24-card conservation, treasury limits, paid theft/refunds, truthful Guardian challenges, private exchanges, full Vintage bot games and lobby authorization/readiness. `tests/modes-browser.mjs` checks mode selection, eight-role help, action visibility, new portraits and mobile layouts against an isolated localhost server.
