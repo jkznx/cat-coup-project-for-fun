@@ -5,11 +5,11 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { Server, Socket } from 'socket.io';
-import { command, createGame, snapshot, type Game, type Command } from './game.js';
+import { command, createGame, snapshot, type Game, type Command, type Mode } from './game.js';
 import { botMove } from './bot.js';
 
 interface Seat { id: string; name: string; token: string; socket?: string; ready: boolean; bot?: boolean; voice?: boolean }
-interface Room { code: string; host: string; seats: Seat[]; game?: Game; touched: number; botTimer?: ReturnType<typeof setTimeout> }
+interface Room { mode:Mode; code: string; host: string; seats: Seat[]; game?: Game; touched: number; botTimer?: ReturnType<typeof setTimeout> }
 export function createApp(options: { adminToken?: string; version?: string; startDrained?: boolean; botDelayMs?: number } = {}) {
   const app = express(), http = createServer(app);
   const io = new Server(http, { maxHttpBufferSize: 8192 });
@@ -51,7 +51,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
   const broadcast = (r: Room) => {
     clearTimeout(r.botTimer); r.botTimer = undefined;
     for (const s of r.seats) if (s.socket) io.to(s.socket).emit('room', {
-      code: r.code, host: r.host, me: s.id, draining,
+      mode:r.mode, code: r.code, host: r.host, me: s.id, draining,
       seats: r.seats.map(({ id, name, ready, socket, bot, voice }) => ({ id, name, ready, bot: !!bot, voice: !!voice, connected: !!socket || !!bot })),
       game: r.game ? snapshot(r.game, s.id) : null,
     });
@@ -87,7 +87,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
       } else {
         if (rooms.size >= 500) throw Error('The server is full. Please try later.');
         let code: string; do { code = randomBytes(4).toString('hex').slice(0, 6).toUpperCase(); } while (rooms.has(code));
-        room = { code, host: '', seats: [], touched: Date.now() }; rooms.set(code, room);
+        room = { mode:'classic', code, host: '', seats: [], touched: Date.now() }; rooms.set(code, room);
       }
       if (room.game) throw Error('This game has already started. Reconnect with your original browser.');
       if (room.seats.length >= 6) throw Error('This room is full.');
@@ -103,6 +103,12 @@ export function createApp(options: { adminToken?: string; version?: string; star
       if (!room || !seat) throw Error('Your room session has expired. Create or join another room.');
       if (seat.socket) io.sockets.sockets.get(seat.socket)?.disconnect(true);
       seat.socket = socket.id; binding = { code: room.code, id: seat.id }; room.touched = Date.now(); broadcast(room);
+    });
+    handle('set-mode', data => {
+      const {room,seat}=member();
+      if (draining || room.host!==seat.id || room.game) throw Error('Only the host can select a mode before dealing.');
+      if (data.mode!=='classic' && data.mode!=='vintage') throw Error('Unknown game mode.');
+      if (room.mode!==data.mode) { room.mode=data.mode; room.seats.forEach(s=>{s.ready=!!s.bot;}); room.touched=Date.now(); broadcast(room); }
     });
     handle('ready', () => { const { room, seat } = member(); if (room.game) throw Error('The game has started.'); seat.ready = !seat.ready; room.touched = Date.now(); broadcast(room); });
     handle('voice-join', data => {
@@ -133,7 +139,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
       if (draining) throw Error('An update is pending. New games are temporarily paused.');
       const { room, seat } = member();
       if (seat.id !== room.host || room.game || room.seats.length < 2 || !room.seats.every(s => s.ready && (s.socket || s.bot))) throw Error('The host can start when 2–6 connected players are ready.');
-      room.game = createGame(room.seats.map(({ id, name }) => ({ id, name }))); room.touched = Date.now(); broadcast(room);
+      room.game = createGame(room.seats.map(({ id, name }) => ({ id, name })),room.mode); room.touched = Date.now(); broadcast(room);
     });
     handle('move', data => {
       const { room, seat } = member();

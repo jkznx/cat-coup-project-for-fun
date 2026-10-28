@@ -1,4 +1,4 @@
-import { type Command, type View } from './game.js';
+import { blockRoles, type Command, type View } from './game.js';
 
 // Only the same redacted view a human seat receives, never another hand/deck.
 export function botMove(view: View, id: string): Command | undefined {
@@ -10,7 +10,7 @@ export function botMove(view: View, id: string): Command | undefined {
   if (view.responders.includes(id)) {
     const roles = hidden.map(c => 'role' in c ? c.role : undefined);
     if (view.phase === 'block') {
-      const possible = view.pending?.action === 'aid' ? ['Duke'] : view.pending?.action === 'steal' ? ['Captain', 'Ambassador'] : ['Contessa'];
+      const possible = view.pending ? blockRoles(view.pending.action,view.mode) : [];
       const role = roles.find(r => r && possible.includes(r));
       if (role) return { type: 'block', role };
     }
@@ -21,5 +21,6 @@ export function botMove(view: View, id: string): Command | undefined {
   if (!target) return;
   if (me.coins >= 7) return { type: 'action', action: 'coup', target: target.id };
   if (hidden.some(c => 'role' in c && c.role === 'Duke')) return { type: 'action', action: 'tax' };
+  if (view.mode==='vintage' && hidden.some(c=>'role' in c && c.role==='Merchant')) return {type:'action',action:'market'};
   return { type: 'action', action: 'income' };
 }

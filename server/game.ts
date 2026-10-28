@@ -1,19 +1,14 @@
 import { randomInt, randomUUID } from 'node:crypto';
 
-export const ROLES = ['Duke', 'Assassin', 'Captain', 'Ambassador', 'Contessa'] as const;
-export type Role = typeof ROLES[number];
-export type Action = 'income' | 'aid' | 'tax' | 'steal' | 'assassinate' | 'exchange' | 'coup';
-export const ACTIONS: Record<Action, { role?: Role; cost: number; targeted?: boolean }> = {
-  income: { cost: 0 }, aid: { cost: 0 }, tax: { role: 'Duke', cost: 0 },
-  steal: { role: 'Captain', cost: 0, targeted: true }, assassinate: { role: 'Assassin', cost: 3, targeted: true },
-  exchange: { role: 'Ambassador', cost: 0 }, coup: { cost: 7, targeted: true },
-};
+import {ACTIONS, modeRoles, blockRoles, type Role, type Mode, type Action} from './roles.js';
+export {ROLES, ACTIONS, blockRoles} from './roles.js';
+export type {Role, Action, Mode} from './roles.js';
 export interface Card { id: string; role: Role; revealed: boolean }
 export interface Player { id: string; name: string; cards: Card[]; coins: number }
 interface Pending { actor: string; action: Action; target?: string; blocker?: string; blockRole?: Role }
 type Continuation = 'finish' | 'block' | 'resolve';
 export interface Game {
-  players: Player[]; deck: Card[]; treasury: number; turn: number; revision: number;
+  mode: Mode; players: Player[]; deck: Card[]; treasury: number; turn: number; revision: number;
   phase: 'action' | 'claim' | 'block' | 'blockClaim' | 'loss' | 'exchange' | 'over';
   pending: Pending | null; passed: string[]; loss?: { player: string; next: Continuation };
   exchange?: Card[]; winner?: string; log: string[];
@@ -26,11 +21,12 @@ function shuffle<T>(items: T[]) {
   for (let i = items.length - 1; i > 0; i--) { const j = randomInt(i + 1); [items[i], items[j]] = [items[j], items[i]]; }
   return items;
 }
-export function createGame(seats: { id: string; name: string }[]): Game {
+export function createGame(seats: { id: string; name: string }[], mode: Mode = 'classic'): Game {
+  if (mode !== 'classic' && mode !== 'vintage') throw Error('Unknown game mode.');
   if (seats.length < 2 || seats.length > 6 || new Set(seats.map(p => p.id)).size !== seats.length) throw Error('Use 2–6 unique players.');
-  const deck = shuffle(ROLES.flatMap(role => Array.from({ length: 3 }, () => ({ id: randomUUID(), role, revealed: false }))));
+  const deck = shuffle(modeRoles(mode).flatMap(role => Array.from({ length: 3 }, () => ({ id: randomUUID(), role, revealed: false }))));
   const players = seats.map((s, i) => ({ ...s, coins: seats.length === 2 && i === 0 ? 1 : 2, cards: [deck.pop()!, deck.pop()!] }));
-  return { players, deck, treasury: 50 - players.reduce((n, p) => n + p.coins, 0), turn: 0, revision: 0,
+  return { mode, players, deck, treasury: 50 - players.reduce((n, p) => n + p.coins, 0), turn: 0, revision: 0,
     phase: 'action', pending: null, passed: [], log: ['The cards are dealt. Trust your instincts, not the cats.'] };
 }
 function player(g: Game, id: string) { const p = g.players.find(p => p.id === id); if (!p) throw Error('Player not found.'); return p; }
@@ -47,13 +43,10 @@ function lose(g: Game, id: string, next: Continuation) {
   if (!living(player(g, id))) { proceed(g, next); return; }
   g.phase = 'loss'; g.loss = { player: id, next }; g.passed = [];
 }
-export function blockRoles(action: Action): Role[] {
-  return action === 'aid' ? ['Duke'] : action === 'steal' ? ['Captain', 'Ambassador'] : action === 'assassinate' ? ['Contessa'] : [];
-}
 function blockStage(g: Game) {
   const p = g.pending!;
   if (p.target && !living(player(g, p.target))) { end(g); return; }
-  if (!blockRoles(p.action).length) { resolve(g); return; }
+  if (!blockRoles(p.action,g.mode).length) { resolve(g); return; }
   g.phase = 'block'; g.passed = [];
 }
 function resolve(g: Game) {
@@ -61,6 +54,8 @@ function resolve(g: Game) {
   if (p.action === 'income') give(g, actor, 1);
   if (p.action === 'aid') give(g, actor, 2);
   if (p.action === 'tax') give(g, actor, 3);
+  if (p.action === 'market') give(g, actor, 2);
+  if (p.action === 'plunder' && target && living(target)) { const n=Math.min(3,target.coins); target.coins-=n; actor.coins+=n; }
   if (p.action === 'steal' && target && living(target)) { const n = Math.min(2, target.coins); target.coins -= n; actor.coins += n; }
   if ((p.action === 'coup' || p.action === 'assassinate') && target && living(target)) { lose(g, target.id, 'finish'); return; }
   if (p.action === 'exchange' && living(actor)) { g.phase = 'exchange'; g.exchange = [g.deck.pop()!, g.deck.pop()!]; return; }
@@ -87,6 +82,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     if (g.phase !== 'action' || g.players[g.turn].id !== id) throw Error('Wait for your turn.');
     if (!Object.hasOwn(ACTIONS, cmd.action)) throw Error('Unknown action.');
     const action = ACTIONS[cmd.action];
+    if (action.vintage && g.mode !== 'vintage') throw Error('That action is only available in Vintage mode.');
     if (me.coins >= 10 && cmd.action !== 'coup') throw Error('At 10 coins, you must coup.');
     if (me.coins < action.cost) throw Error('You do not have enough coins.');
     if (action.targeted && (!cmd.target || cmd.target === id || !living(player(g, cmd.target)))) throw Error('Choose an active opponent.');
@@ -104,7 +100,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     }
   } else if (cmd.type === 'block') {
     const p = g.pending;
-    if (g.phase !== 'block' || !p || !responders(g).includes(id) || !blockRoles(p.action).includes(cmd.role)) throw Error('That block is unavailable.');
+    if (g.phase !== 'block' || !p || !responders(g).includes(id) || !blockRoles(p.action,g.mode).includes(cmd.role)) throw Error('That block is unavailable.');
     p.blocker = id; p.blockRole = cmd.role; g.phase = 'blockClaim'; g.passed = [];
     note(g, `${me.name} blocks with a claimed ${cmd.role}.`);
   } else if (cmd.type === 'challenge') {
@@ -141,7 +137,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
 export function snapshot(g: Game, viewer: string) {
   return {
     players: g.players.map(p => ({ ...p, cards: p.cards.map(c => p.id === viewer || c.revealed ? c : { revealed: false }) })),
-    treasury: g.treasury, deckCount: g.deck.length, turn: g.players[g.turn].id, revision: g.revision,
+    mode: g.mode, treasury: g.treasury, deckCount: g.deck.length, turn: g.players[g.turn].id, revision: g.revision,
     phase: g.phase, pending: g.pending, responders: responders(g), lossPlayer: g.loss?.player,
     exchange: g.phase === 'exchange' && g.pending?.actor === viewer ? g.exchange : undefined,
     winner: g.winner, log: g.log,
