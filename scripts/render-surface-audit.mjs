@@ -1,0 +1,15 @@
+import {createRequire} from 'node:module';import {mkdir,writeFile} from 'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||undefined,headless:true});const out='.impeccable/review/public-performance-20261028';await mkdir(out,{recursive:true});const report={surfaces:[],errors:[],roomsCreated:0,roomsLeft:0,microphoneUsed:false};let page;
+try{
+ const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));await page.goto('https://cat-coup.jukrachai-crybaby.space/');await page.getByLabel('Your nickname').fill('Render Preview');await page.getByRole('button',{name:'Create a room',exact:true}).click();await page.locator('.mode-panel').waitFor();report.roomsCreated++;
+ for(const mode of ['classic','vintage']){
+  if(mode==='vintage'){const art=page.waitForResponse(r=>new URL(r.url()).pathname==='/assets/vintage-court.webp',{timeout:45000});const started=Date.now();await page.getByRole('radio',{name:/Vintage/}).click();await page.locator('input[value="vintage"]:checked').waitFor();const response=await art;await response.finished();const headers=await response.allHeaders();report.vintageArtwork={status:response.status(),contentType:headers['content-type'],loadMs:Date.now()-started};if(response.status()!==200)throw Error('Vintage artwork response failed');}
+  await page.evaluate(()=>document.fonts.ready);await page.locator('.portrait').evaluateAll(async es=>{const urls=[...new Set(es.map(e=>getComputedStyle(e).backgroundImage).filter(s=>s.startsWith('url(')).map(s=>s.slice(4,-1).replaceAll('\"','')))];await Promise.all(urls.map(url=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(true);image.onerror=()=>reject(Error('Portrait decode failed'));image.src=url;})));});
+  for(const [width,height]of [[1440,1000],[1024,768],[768,1024],[390,844],[320,800]]){
+   await page.setViewportSize({width,height});const info=await page.evaluate(()=>({width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,font:getComputedStyle(document.querySelector('.mode-panel legend')).fontFamily,portraits:[...document.querySelectorAll('.portrait')].map(e=>({label:e.getAttribute('aria-label'),background:getComputedStyle(e).backgroundImage}))}));report.surfaces.push({mode,...info});await page.screenshot({path:`${out}/lobby-${mode}-${width}.png`,fullPage:true});
+  }
+ }
+}finally{
+ if(page&&await page.getByRole('button',{name:'Leave room',exact:true}).isVisible().catch(()=>false)){await page.getByRole('button',{name:'Leave room',exact:true}).click();await page.getByLabel('Your nickname').waitFor();report.roomsLeft++;}
+ await browser.close();await writeFile(`${out}/render-results.json`,JSON.stringify(report,null,2));console.log(JSON.stringify({surfaces:report.surfaces.length,overflow:report.surfaces.filter(s=>s.overflow),errors:report.errors,roomsCreated:report.roomsCreated,roomsLeft:report.roomsLeft}));
+}

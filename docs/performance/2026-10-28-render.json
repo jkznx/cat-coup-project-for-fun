@@ -1,0 +1,73 @@
+{
+  "viewports": [
+    {
+      "mode": "classic",
+      "width": 1440,
+      "overflow": false,
+      "font": "Geist, Arial, sans-serif"
+    },
+    {
+      "mode": "classic",
+      "width": 1024,
+      "overflow": false,
+      "font": "Geist, Arial, sans-serif"
+    },
+    {
+      "mode": "classic",
+      "width": 768,
+      "overflow": false,
+      "font": "Geist, Arial, sans-serif"
+    },
+    {
+      "mode": "classic",
+      "width": 390,
+      "overflow": false,
+      "font": "Geist, Arial, sans-serif"
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "overflow": false,
+      "font": "Geist, Arial, sans-serif"
+    },
+    {
+      "mode": "vintage",
+      "width": 1440,
+      "overflow": false,
+      "font": "\"Bree Serif\", Georgia, serif"
+    },
+    {
+      "mode": "vintage",
+      "width": 1024,
+      "overflow": false,
+      "font": "\"Bree Serif\", Georgia, serif"
+    },
+    {
+      "mode": "vintage",
+      "width": 768,
+      "overflow": false,
+      "font": "\"Bree Serif\", Georgia, serif"
+    },
+    {
+      "mode": "vintage",
+      "width": 390,
+      "overflow": false,
+      "font": "\"Bree Serif\", Georgia, serif"
+    },
+    {
+      "mode": "vintage",
+      "width": 320,
+      "overflow": false,
+      "font": "\"Bree Serif\", Georgia, serif"
+    }
+  ],
+  "errors": [],
+  "roomsCreated": 1,
+  "roomsLeft": 1,
+  "microphoneUsed": false,
+  "vintageArtwork": {
+    "status": 200,
+    "contentType": "image/webp",
+    "loadMs": 1583
+  }
+}

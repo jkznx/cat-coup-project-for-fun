@@ -1,0 +1,3048 @@
+{
+  "startedAt": "2026-10-28T13:40:12.173Z",
+  "base": "https://cat-coup.jukrachai-crybaby.space/",
+  "browser": "156.0.4314.50",
+  "conditions": {
+    "runsPerViewport": 3,
+    "cache": [
+      "cold new context",
+      "primed normal reload"
+    ],
+    "viewports": [
+      "1440x1000",
+      "390x844"
+    ],
+    "downloadBytesPerSecond": 500000,
+    "uploadBytesPerSecond": 125000,
+    "addedLatencyMs": 40,
+    "cpuSlowdown": 4,
+    "reducedMotion": true,
+    "realMicrophoneUsed": false,
+    "roomsCreated": 0
+  },
+  "samples": [
+    {
+      "viewport": "desktop",
+      "run": 1,
+      "cache": "cold",
+      "lcp": 2228,
+      "lcpElement": "H1.",
+      "cls": 0.0028030172993224346,
+      "shifts": [
+        {
+          "value": 0.0008534106671368634,
+          "time": 3419
+        },
+        {
+          "value": 0.000339522720148534,
+          "time": 4056.7999999821186
+        },
+        {
+          "value": 0.0007237883391203704,
+          "time": 4085.5999999940395
+        },
+        {
+          "value": 0.0008862955729166667,
+          "time": 4146.699999988079
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 1730.199999988079,
+          "duration": 112
+        },
+        {
+          "start": 1910.7999999821186,
+          "duration": 198
+        },
+        {
+          "start": 4446.5,
+          "duration": 334
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 15416.699999988079,
+      "fcpMs": 2228,
+      "documentTtfbMs": 514.9000000059605,
+      "documentDownloadMs": 7.9000000059604645,
+      "domContentLoadedMs": 1862.4000000059605,
+      "loadMs": 15273.299999982119,
+      "transferBytes": 2386628,
+      "encodedResourceBytes": 2381767,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 1153.2999999821186,
+          "durationMs": 570.1000000238419,
+          "ttfbMs": 294.5,
+          "transferBytes": 122014,
+          "encodedBytes": 121714,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 1154.5,
+          "durationMs": 300.09999999403954,
+          "ttfbMs": 235.7000000178814,
+          "transferBytes": 22677,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 1154.9000000059605,
+          "durationMs": 346.39999997615814,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 1861.9000000059605,
+          "durationMs": 1137.199999988079,
+          "ttfbMs": 1097.699999988079,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 1916,
+          "durationMs": 13338.699999988079,
+          "ttfbMs": 1043.5999999940395,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 1933,
+          "durationMs": 2156.699999988079,
+          "ttfbMs": 849.3000000119209,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 1936.9000000059605,
+          "durationMs": 1450.5999999940395,
+          "ttfbMs": 848.6999999880791,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 1937.199999988079,
+          "durationMs": 2114.300000011921,
+          "ttfbMs": 864.9000000059605,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "desktop",
+      "run": 1,
+      "cache": "warm",
+      "lcp": 1160,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 917.3000000119209,
+          "duration": 173
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 1356.2000000178814,
+      "fcpMs": 1160,
+      "documentTtfbMs": 673.0999999940395,
+      "documentDownloadMs": 9.200000017881393,
+      "domContentLoadedMs": 866.3000000119209,
+      "loadMs": 1232.800000011921,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2381767,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 754.1000000238419,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 121714,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 755.3000000119209,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 756.9000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 820.2000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 821.6000000238419,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 823.7000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 864.2000000178814,
+          "durationMs": 362.90000000596046,
+          "ttfbMs": 336.7000000178814,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 947.8000000119209,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 64,
+          "inputDelay": 8.900000005960464
+        },
+        {
+          "name": "pointerup",
+          "duration": 64,
+          "inputDelay": 13.300000011920929
+        },
+        {
+          "name": "click",
+          "duration": 64,
+          "inputDelay": 14.900000005960464
+        }
+      ],
+      "headers": [
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "EXPIRED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "desktop",
+      "run": 2,
+      "cache": "cold",
+      "lcp": 1488,
+      "lcpElement": "H1.",
+      "cls": 0.0035587414400077163,
+      "shifts": [
+        {
+          "value": 0.003148065004701968,
+          "time": 1935.699999988079
+        },
+        {
+          "value": 0.0004106764353057485,
+          "time": 2336.300000011921
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 1083.800000011921,
+          "duration": 112
+        },
+        {
+          "start": 1268.300000011921,
+          "duration": 201
+        },
+        {
+          "start": 1696.5,
+          "duration": 196
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 6203.800000011921,
+      "fcpMs": 1488,
+      "documentTtfbMs": 447.09999999403954,
+      "documentDownloadMs": 13.900000005960464,
+      "domContentLoadedMs": 1221.0999999940395,
+      "loadMs": 6074,
+      "transferBytes": 2386654,
+      "encodedResourceBytes": 2381791,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 568.4000000059605,
+          "durationMs": 505.40000000596046,
+          "ttfbMs": 179.60000002384186,
+          "transferBytes": 122038,
+          "encodedBytes": 121738,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 570.6999999880791,
+          "durationMs": 362.7000000178814,
+          "ttfbMs": 235.7999999821186,
+          "transferBytes": 22677,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 571.3000000119209,
+          "durationMs": 304.09999999403954,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 1220.699999988079,
+          "durationMs": 163.90000000596046,
+          "ttfbMs": 141.59999999403954,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 1274.4000000059605,
+          "durationMs": 4782.199999988079,
+          "ttfbMs": 195.80000001192093,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 1295.9000000059605,
+          "durationMs": 491.2999999821186,
+          "ttfbMs": 230.5,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 1299.4000000059605,
+          "durationMs": 502.90000000596046,
+          "ttfbMs": 229.19999998807907,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 1299.800000011921,
+          "durationMs": 579.6999999880791,
+          "ttfbMs": 296.39999997615814,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "desktop",
+      "run": 2,
+      "cache": "warm",
+      "lcp": 740,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 455.80000001192093,
+          "duration": 222
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 832,
+      "fcpMs": 740,
+      "documentTtfbMs": 195.09999999403954,
+      "documentDownloadMs": 9.5,
+      "domContentLoadedMs": 408.60000002384186,
+      "loadMs": 730.5,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2381791,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 294,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 121738,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 295.7000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 296.80000001192093,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 349.10000002384186,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 352.90000000596046,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 355.60000002384186,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 406.90000000596046,
+          "durationMs": 111.90000000596046,
+          "ttfbMs": 99.19999998807907,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 502.7000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 40,
+          "inputDelay": 4.199999988079071
+        },
+        {
+          "name": "pointerup",
+          "duration": 40,
+          "inputDelay": 7.4000000059604645
+        },
+        {
+          "name": "click",
+          "duration": 40,
+          "inputDelay": 7.700000017881393
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "desktop",
+      "run": 3,
+      "cache": "cold",
+      "lcp": 6248,
+      "lcpElement": "H1.",
+      "cls": 0.002819859634211034,
+      "shifts": [
+        {
+          "value": 0.0007184878879123263,
+          "time": 8529.5
+        },
+        {
+          "value": 0.0008534106671368634,
+          "time": 9339.100000023842
+        },
+        {
+          "value": 0.0003616655062451775,
+          "time": 9906.800000011921
+        },
+        {
+          "value": 0.0008862955729166667,
+          "time": 10851.600000023842
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 5627.800000011921,
+          "duration": 173
+        },
+        {
+          "start": 5837.200000017881,
+          "duration": 59
+        },
+        {
+          "start": 5898.9000000059605,
+          "duration": 329
+        },
+        {
+          "start": 10458.700000017881,
+          "duration": 355
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 28131.30000001192,
+      "fcpMs": 6248,
+      "documentTtfbMs": 1218.7999999821186,
+      "documentDownloadMs": 11.300000011920929,
+      "domContentLoadedMs": 5834,
+      "loadMs": 28008.40000000596,
+      "transferBytes": 2387066,
+      "encodedResourceBytes": 2382209,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 1909.5,
+          "durationMs": 3709.100000023842,
+          "ttfbMs": 1081.699999988079,
+          "transferBytes": 122569,
+          "encodedBytes": 122269,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 1911.1000000238419,
+          "durationMs": 2687,
+          "ttfbMs": 697.8000000119209,
+          "transferBytes": 22564,
+          "encodedBytes": 22264,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 1911.4000000059605,
+          "durationMs": 251.80000001192093,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 5832.9000000059605,
+          "durationMs": 3493.9000000059605,
+          "ttfbMs": 3467,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 5904.9000000059605,
+          "durationMs": 22086.20000001788,
+          "ttfbMs": 4158.799999982119,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 5926.800000011921,
+          "durationMs": 4867.5,
+          "ttfbMs": 4535.0999999940395,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 5931.600000023842,
+          "durationMs": 3380.2999999821186,
+          "ttfbMs": 2233.199999988079,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 5933.200000017881,
+          "durationMs": 2571.9000000059605,
+          "ttfbMs": 1113.4000000059605,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 112,
+          "inputDelay": 13.5
+        },
+        {
+          "name": "pointerup",
+          "duration": 112,
+          "inputDelay": 20.80000001192093
+        },
+        {
+          "name": "click",
+          "duration": 112,
+          "inputDelay": 23
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "desktop",
+      "run": 3,
+      "cache": "warm",
+      "lcp": 944,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 872.4000000059605,
+          "duration": 125
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 1503.0999999940395,
+      "fcpMs": 944,
+      "documentTtfbMs": 670.4000000059605,
+      "documentDownloadMs": 17.799999982118607,
+      "domContentLoadedMs": 785.4000000059605,
+      "loadMs": 1398.199999988079,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2382209,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 717,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 122269,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 717.1999999880791,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22264,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 717.4000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 747.5,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 748.5,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 749.5999999940395,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 782.3000000119209,
+          "durationMs": 606.5,
+          "ttfbMs": 587.0999999940395,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 834.1999999880791,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 72,
+          "inputDelay": 7.200000017881393
+        },
+        {
+          "name": "pointerup",
+          "duration": 72,
+          "inputDelay": 12.599999994039536
+        },
+        {
+          "name": "click",
+          "duration": 72,
+          "inputDelay": 14.099999994039536
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 1,
+      "cache": "cold",
+      "lcp": 6004,
+      "lcpElement": "H1.",
+      "cls": 0.06006002677215419,
+      "shifts": [
+        {
+          "value": 0.06006002677215419,
+          "time": 6983.5
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 5286.200000017881,
+          "duration": 232
+        },
+        {
+          "start": 5566,
+          "duration": 78
+        },
+        {
+          "start": 5644.5,
+          "duration": 328
+        },
+        {
+          "start": 7222.5999999940395,
+          "duration": 298
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 11589.200000017881,
+      "fcpMs": 6004,
+      "documentTtfbMs": 1087.0999999940395,
+      "documentDownloadMs": 17.599999994039536,
+      "domContentLoadedMs": 5564.5999999940395,
+      "loadMs": 11467.09999999404,
+      "transferBytes": 2386520,
+      "encodedResourceBytes": 2381659,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 3040.800000011921,
+          "durationMs": 2232.199999988079,
+          "ttfbMs": 836.5,
+          "transferBytes": 121903,
+          "encodedBytes": 121603,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 3041.0999999940395,
+          "durationMs": 861.5,
+          "ttfbMs": 668.3000000119209,
+          "transferBytes": 22680,
+          "encodedBytes": 22380,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 3041.2000000178814,
+          "durationMs": 352.2999999821186,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 5563.5999999940395,
+          "durationMs": 426.30000001192093,
+          "ttfbMs": 406.09999999403954,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 5653.800000011921,
+          "durationMs": 5795.799999982119,
+          "ttfbMs": 744.4000000059605,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 5689.0999999940395,
+          "durationMs": 1233.9000000059605,
+          "ttfbMs": 742.5999999940395,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 5695,
+          "durationMs": 1251.0999999940395,
+          "ttfbMs": 776,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 5696,
+          "durationMs": 1277.5999999940395,
+          "ttfbMs": 925,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 112,
+          "inputDelay": 14.400000005960464
+        },
+        {
+          "name": "pointerup",
+          "duration": 112,
+          "inputDelay": 19.200000017881393
+        },
+        {
+          "name": "click",
+          "duration": 112,
+          "inputDelay": 21.599999994039536
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 1,
+      "cache": "warm",
+      "lcp": 2024,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 1981.4000000059605,
+          "duration": 129
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 2391.300000011921,
+      "fcpMs": 2024,
+      "documentTtfbMs": 1795.9000000059605,
+      "documentDownloadMs": 7.899999976158142,
+      "domContentLoadedMs": 1929.5,
+      "loadMs": 2326,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2381659,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 1856,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 121603,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 1856.9000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22380,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 1857.5,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 1901.4000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 1902.5,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 1903.300000011921,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 1928.5,
+          "durationMs": 390.30000001192093,
+          "ttfbMs": 380.5,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 1956.699999988079,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [],
+      "headers": [
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 2,
+      "cache": "cold",
+      "lcp": 2524,
+      "lcpElement": "H1.",
+      "cls": 0.06007371008365974,
+      "shifts": [
+        {
+          "value": 0.06007371008365974,
+          "time": 3283.5999999940395
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 2124.2999999821186,
+          "duration": 105
+        },
+        {
+          "start": 2292.7999999821186,
+          "duration": 220
+        },
+        {
+          "start": 2951.4000000059605,
+          "duration": 193
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 7866.0999999940395,
+      "fcpMs": 2524,
+      "documentTtfbMs": 742.5999999940395,
+      "documentDownloadMs": 4.300000011920929,
+      "domContentLoadedMs": 2249.699999988079,
+      "loadMs": 7716.0999999940395,
+      "transferBytes": 2386654,
+      "encodedResourceBytes": 2381794,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 986.4000000059605,
+          "durationMs": 1127.2999999821186,
+          "ttfbMs": 641.1999999880791,
+          "transferBytes": 122041,
+          "encodedBytes": 121741,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 987.5999999940395,
+          "durationMs": 742.0999999940395,
+          "ttfbMs": 639.5,
+          "transferBytes": 22677,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 988.1999999880791,
+          "durationMs": 382.59999999403954,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 2249.2999999821186,
+          "durationMs": 353.5,
+          "ttfbMs": 342.09999999403954,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 2296.699999988079,
+          "durationMs": 5395.700000017881,
+          "ttfbMs": 512.8000000119209,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 2319.5,
+          "durationMs": 1047.9000000059605,
+          "ttfbMs": 791,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 2323.9000000059605,
+          "durationMs": 942.5,
+          "ttfbMs": 625.3000000119209,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 2324.5999999940395,
+          "durationMs": 955.1999999880791,
+          "ttfbMs": 678.3999999761581,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 136,
+          "inputDelay": 10.600000023841858
+        },
+        {
+          "name": "pointerup",
+          "duration": 136,
+          "inputDelay": 15.699999988079071
+        },
+        {
+          "name": "click",
+          "duration": 136,
+          "inputDelay": 17.69999998807907
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 2,
+      "cache": "warm",
+      "lcp": 1304,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 1022.4000000059605,
+          "duration": 207
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 1407.7000000178814,
+      "fcpMs": 1304,
+      "documentTtfbMs": 760.1999999880791,
+      "documentDownloadMs": 12.099999994039536,
+      "domContentLoadedMs": 967,
+      "loadMs": 1311,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2381794,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 852.7000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 121741,
+          "decodedBytes": 359283,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 853.8000000119209,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h3"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 854.7000000178814,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 916.9000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 918.6000000238419,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 924.3000000119209,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 965.3000000119209,
+          "durationMs": 338.80000001192093,
+          "ttfbMs": 328.09999999403954,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 1070.300000011921,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 40,
+          "inputDelay": 5.199999988079071
+        },
+        {
+          "name": "pointerup",
+          "duration": 40,
+          "inputDelay": 8
+        },
+        {
+          "name": "click",
+          "duration": 40,
+          "inputDelay": 8.400000005960464
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 3,
+      "cache": "cold",
+      "lcp": 3428,
+      "lcpElement": "H1.",
+      "cls": 0.06006002677215419,
+      "shifts": [
+        {
+          "value": 0.06006002677215419,
+          "time": 5574.9000000059605
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 2316.800000011921,
+          "duration": 339
+        },
+        {
+          "start": 2657.800000011921,
+          "duration": 54
+        },
+        {
+          "start": 2713.5,
+          "duration": 103
+        },
+        {
+          "start": 2817.100000023842,
+          "duration": 590
+        },
+        {
+          "start": 4342.9000000059605,
+          "duration": 261
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 9326.5,
+      "fcpMs": 3428,
+      "documentTtfbMs": 683.8999999761581,
+      "documentDownloadMs": 24.5,
+      "domContentLoadedMs": 2710,
+      "loadMs": 9187.100000023842,
+      "transferBytes": 2386650,
+      "encodedResourceBytes": 2381791,
+      "overflow": false,
+      "readyLabel": "Table server connected",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 947.9000000059605,
+          "durationMs": 1350.300000011921,
+          "ttfbMs": 390.59999999403954,
+          "transferBytes": 122038,
+          "encodedBytes": 121738,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 948.4000000059605,
+          "durationMs": 452.90000000596046,
+          "ttfbMs": 207.80000001192093,
+          "transferBytes": 22677,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 948.6000000238419,
+          "durationMs": 469.59999999403954,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 2709,
+          "durationMs": 362.7000000178814,
+          "ttfbMs": 342.7999999821186,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 2828.9000000059605,
+          "durationMs": 6341.700000017881,
+          "ttfbMs": 539,
+          "transferBytes": 2195768,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 2875.300000011921,
+          "durationMs": 1842.9000000059605,
+          "ttfbMs": 868.5999999940395,
+          "transferBytes": 13256,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 2882.2000000178814,
+          "durationMs": 2669.2999999821186,
+          "ttfbMs": 1174.0999999940395,
+          "transferBytes": 13696,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 2883.100000023842,
+          "durationMs": 2616.5999999940395,
+          "ttfbMs": 1640.5,
+          "transferBytes": 13672,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 144,
+          "inputDelay": 13.800000011920929
+        },
+        {
+          "name": "pointerup",
+          "duration": 144,
+          "inputDelay": 21.599999994039536
+        },
+        {
+          "name": "click",
+          "duration": 144,
+          "inputDelay": 24.69999998807907
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 302,
+          "type": "script",
+          "encoding": null,
+          "cacheControl": "max-age=300, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "mobile",
+      "run": 3,
+      "cache": "warm",
+      "lcp": 1372,
+      "lcpElement": "H1.",
+      "cls": 0,
+      "shifts": [],
+      "longTasks": [
+        {
+          "start": 1020.6999999880791,
+          "duration": 148
+        }
+      ],
+      "events": [],
+      "visualReadyMs": 1450.5,
+      "fcpMs": 1372,
+      "documentTtfbMs": 608.3000000119209,
+      "documentDownloadMs": 17.599999994039536,
+      "domContentLoadedMs": 910.4000000059605,
+      "loadMs": 1282.9000000059605,
+      "transferBytes": 3084,
+      "encodedResourceBytes": 2381791,
+      "overflow": false,
+      "readyLabel": "Connecting…",
+      "resources": [
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "startMs": 703.3000000119209,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 121738,
+          "decodedBytes": 359283,
+          "protocol": "h2"
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "startMs": 707.9000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 22377,
+          "decodedBytes": 50888,
+          "protocol": "h2"
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "startMs": 711.4000000059605,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 0,
+          "decodedBytes": 0,
+          "protocol": ""
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "startMs": 772.6999999880791,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 12956,
+          "decodedBytes": 12956,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "startMs": 775.5999999940395,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13372,
+          "decodedBytes": 13372,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "startMs": 777.5999999940395,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 13396,
+          "decodedBytes": 13396,
+          "protocol": "h3"
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "startMs": 907.3000000119209,
+          "durationMs": 360.19999998807907,
+          "ttfbMs": 332.09999999403954,
+          "transferBytes": 2784,
+          "encodedBytes": 2484,
+          "decodedBytes": 5737,
+          "protocol": "h3"
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "startMs": 1047.300000011921,
+          "durationMs": 0,
+          "ttfbMs": 0,
+          "transferBytes": 0,
+          "encodedBytes": 2195468,
+          "decodedBytes": 2195468,
+          "protocol": "h3"
+        }
+      ],
+      "helpEvents": [
+        {
+          "name": "pointerdown",
+          "duration": 104,
+          "inputDelay": 12.099999994039536
+        },
+        {
+          "name": "pointerup",
+          "duration": 104,
+          "inputDelay": 19.400000005960464
+        },
+        {
+          "name": "click",
+          "duration": 104,
+          "inputDelay": 20.400000005960464
+        }
+      ],
+      "headers": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "document",
+          "encoding": null,
+          "cacheControl": "public, max-age=0",
+          "edgeCache": "DYNAMIC",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-B2kmQAWv.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/index-jEYGbG30.css",
+          "status": 200,
+          "type": "stylesheet",
+          "encoding": "zstd",
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "status": 200,
+          "type": "script",
+          "encoding": "gzip",
+          "cacheControl": "public, max-age=86400",
+          "edgeCache": null,
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-400-normal-B40WzpMT.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-600-normal-CSETrqM2.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/assets/geist-latin-800-normal-BiOIUYzx.woff2",
+          "status": 200,
+          "type": "font",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/challenge-platform/[redacted]",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/assets/cat-court-lossless.webp",
+          "status": 200,
+          "type": "image",
+          "encoding": null,
+          "cacheControl": "public, max-age=14400",
+          "edgeCache": "REVALIDATED",
+          "age": null,
+          "etag": true
+        },
+        {
+          "path": "/cdn-cgi/zaraz/s.js",
+          "status": 200,
+          "type": "script",
+          "encoding": "zstd",
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        },
+        {
+          "path": "/cdn-cgi/rum",
+          "status": 204,
+          "type": "xhr",
+          "encoding": null,
+          "cacheControl": null,
+          "edgeCache": null,
+          "age": null,
+          "etag": false
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": []
+    }
+  ],
+  "endedAt": "2026-10-28T13:41:44.884Z"
+}

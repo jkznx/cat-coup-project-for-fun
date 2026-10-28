@@ -1,5 +1,7 @@
 # Performance engineering loop
 
+Latest public check: [2026-10-28 rendering and cold/warm loading audit](docs/performance/2026-10-28-public.md). Twelve homepage loads plus both lobby themes at five sizes. Compression/cache are already active; initial artwork and the variable public network path remain the main findings. This audit did not change application behavior or restart the server.
+
 Measured 2026-10-27 against a separate loopback instance on port 3105. The public game was not used for load testing. Raw measurements: [docs/performance/2026-10-27.json](docs/performance/2026-10-27.json).
 
 ## Loop 1: initial artwork delivery — kept
@@ -25,9 +27,9 @@ The first instrumentation attempt sampled before the background image finished a
 
 Run `pnpm build`, then `pnpm perf:budget`. CI and the Docker build enforce:
 
-- Total built JavaScript gzip: at most 130,000 bytes (measured 112,883).
-- Total built CSS gzip: at most 23,000 bytes (measured 18,666).
-- The sprite actually referenced by production CSS: at most 2,250,000 bytes.
+- Total built JavaScript gzip: at most 130,000 bytes (2026-10-28: 116,260).
+- Total built CSS gzip: at most 23,000 bytes (2026-10-28: 21,472).
+- Classic sprite: at most 2,250,000 bytes; Vintage sprite: at most 250,000; combined: at most 2,500,000 (2026-10-28: 2,395,182).
 
 The byte check is deterministic. Browser timings remain evidence rather than a flaky CI time threshold. Existing rules, private-hand, drain and manifest tests plus desktop/mobile browser and WebSocket/polling smoke checks remain correctness gates.
 
