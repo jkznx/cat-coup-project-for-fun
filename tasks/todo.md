@@ -2,6 +2,8 @@
 
 Status updated 2026-10-27: production packaging, workflows, drain controls and deployment tools are implemented. CI run 40344812125 passed on the public `jkznx/cat-coup-project-for-fun` repository. Temporary-port container and browser checks passed. The user confirmed private tunnel-token rotation/service update and authorized migration after tests. Live Docker migration, promotion, rollback drill and scheduled activation remain unverified. Performance loop 1 and its evidence are in `PERF.md`.
 
+2026-10-28 handoff: performance CI 40446705744 and promotion 40636890569 both passed. Bootstrap could not reach Docker's engine, before any app replacement. The user explicitly paused deployment. Migration, rollback drills and scheduled activation remain paused; no scheduled task was created.
+
 ## Task 1: Run a production container
 
 Add an emitted server build and multi-stage Docker image, with pinned Node/pnpm and non-root runtime.

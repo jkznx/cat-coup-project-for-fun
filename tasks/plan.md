@@ -2,6 +2,8 @@
 
 Planning date: 2026-10-26 (Asia/Bangkok), updated 2026-10-27. Production packaging, CI, drain and deployment tools are implemented. Hosted CI run 40344812125 passed both verification and publication. Public HTTPS and two-client lobby/WebSocket checks previously passed against the Windows Node server. The user confirmed token rotation/service update and authorized a tested migration. Live Docker migration, rollback drills and scheduled activation remain pending. See `tasks/todo.md`, `DEPLOYMENT.md` and `PERF.md` for evidence and the performance loop.
 
+2026-10-28: performance CI and explicit release promotion succeeded. Host deployment is paused at the user's request after the Docker engine was unavailable; no app replacement or scheduled activation occurred.
+
 ## Confirmed scope and assumptions
 
 - Run on the user's Windows PC with Docker Desktop, using Linux containers.

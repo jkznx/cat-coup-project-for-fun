@@ -8,9 +8,17 @@ Verified 2026-10-26, Asia/Bangkok.
 - Current local suite: 13 passed, including admin isolation, startup drain, unfinished-game/reconnect handling and manifest validation.
 - The production image was tested on temporary port 3101, including the desktop/mobile browser game flow and isolated WebSocket/polling smoke. Runtime user was `node`; `tsx` was absent from production dependencies.
 - Lossless artwork delivery was measured on a separate instance on port 3105. Original and derivative decoded RGBA pixels match. The derivative is 31.3% smaller; full evidence and timing limitations are in `PERF.md` and `docs/performance/2026-10-27.json`.
-- After the artwork change, production build, byte budgets, 13 tests, desktop/mobile walkthrough and both socket transports passed locally. New hosted CI results must be recorded separately after publication.
+- After the artwork change, production build, byte budgets, 13 tests, desktop/mobile walkthrough and both socket transports passed locally. Hosted CI run [40446705744](https://github.com/jkznx/cat-coup-project-for-fun/actions/runs/40446705744) subsequently passed for commit `982443f597d66b24e1545587f24f23ebbbc4e77e`, confirmed 2026-10-28.
 - The user confirmed private tunnel-token rotation/service update and approved a tested live migration with no games in progress. That approval is not evidence that Docker migration, promotion, rollback drills or scheduled activation have occurred.
-- Archify architecture based on commit `00f98fb923852efdb49fd9c617d4458d10f3e072` passed schema, artifact, strict provenance and real-browser gates. Local artifacts are under ignored `.archify/architecture-cat-coup-20261027-010000/`.
+- Archify architecture based on commit `00f98fb923852efdb49fd9c617d4458d10f3e072` passed schema, artifact, strict provenance and real-browser gates. Four browser captures were produced; the 1440×900 dark preview was inspected for labels, routes and containment. Local artifacts are under ignored `.archify/architecture-cat-coup-20261027-010000/`.
+
+## Deployment handoff: 2026-10-28
+
+- Explicit [promotion run 40636890569](https://github.com/jkznx/cat-coup-project-for-fun/actions/runs/40636890569) succeeded for CI run 40446705744. Release: `deploy-40636890569`.
+- Promoted image: `ghcr.io/jkznx/cat-coup-project-for-fun@sha256:23c89928e4d840aefb80c6c8cb1116d34be8e13919d04f247be1981253ba0b2f`; source commit `982443f597d66b24e1545587f24f23ebbbc4e77e`.
+- Private host configuration and local admin credential were prepared outside the Git checkout with restricted Windows ACLs. No secret contents were displayed or committed. Normal public DNS resolution succeeded; Cloudflared was Running/Automatic.
+- Bootstrap stopped at the Docker pull because the Linux engine pipe was unavailable. No live app was replaced and no scheduled deployment task was enabled.
+- The user then explicitly requested pausing deployment and receiving Archify/performance results. Keep migration, rollback drills and task activation paused until the user resumes them.
 
 ## Functional checks
 
