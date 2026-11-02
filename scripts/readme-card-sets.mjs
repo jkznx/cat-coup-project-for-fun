@@ -5,7 +5,7 @@ const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||undefined,headless:true});
 const classic=[['Crownpaw','Tax · collect 3 coins','Blocks foreign aid'],['Shadowpaw','Assassinate · costs 3 coins','Remove one influence'],['Tideclaw','Steal · take up to 2 coins','Blocks a steal'],['Whisperpaw','Exchange · draw 2 cards','Blocks a steal'],['Velvetpaw','Block an assassination','Protect your influence']];
-const extra=[['Merchant','Market · collect up to 2 coins','Challengeable, not blockable'],['Bandit','Plunder · pay 1, steal up to 3','Guardian can block'],['Guardian','Block a steal or plunder','Protect yourself; no special action']];
+const extra=[['Coinpaw','Market · collect up to 2 coins','Challengeable, not blockable'],['Masktail','Plunder · pay 1, steal up to 3','Shieldpaw can block'],['Shieldpaw','Block a steal or plunder','Protect yourself; no special action']];
 await mkdir('docs/images',{recursive:true});
 try {
  for(const [name,roles,title,subtitle,asset,w,h,panel] of [

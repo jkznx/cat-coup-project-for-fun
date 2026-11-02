@@ -53,7 +53,7 @@ test('truthful challenge replaces proof card and challenger chooses loss', () =>
 });
 
 test('cat role names are complete and unique while rule identifiers stay compatible', () => {
-  assert.deepEqual(Object.values(ROLE_NAMES), ['Crownpaw','Shadowpaw','Tideclaw','Whisperpaw','Velvetpaw','Merchant','Bandit','Guardian']);
+  assert.deepEqual(Object.values(ROLE_NAMES), ['Crownpaw','Shadowpaw','Tideclaw','Whisperpaw','Velvetpaw','Coinpaw','Masktail','Shieldpaw']);
   assert.equal(new Set(Object.values(ROLE_NAMES)).size, 8);
 });
 test('caught assassination bluff refunds fee', () => {

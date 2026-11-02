@@ -29,4 +29,4 @@ Prompt summary: one three-panel sprite, reference style only; matching scale, fu
 
 ## Character display names
 
-The Classic portraits are now displayed as Crownpaw, Shadowpaw, Tideclaw, Whisperpaw and Velvetpaw, in the same left-to-right order. The source prompt above is preserved as historical provenance; original image bytes are unchanged. Vintage shares these five names and adds Merchant, Bandit and Guardian.
+The Classic portraits are now displayed as Crownpaw, Shadowpaw, Tideclaw, Whisperpaw and Velvetpaw, in the same left-to-right order. The source prompt above is preserved as historical provenance; original image bytes are unchanged. Vintage shares these five names and adds Coinpaw, Masktail and Shieldpaw. The historical role identifiers Merchant, Bandit and Guardian remain internal rule keys; their display names are Coinpaw, Masktail and Shieldpaw respectively.

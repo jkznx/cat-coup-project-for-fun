@@ -26,13 +26,13 @@ Classic uses **15 cards: three of each role**. Role claims and blocks can be cha
 
 ### Vintage — all five Classic roles, plus three new cats
 
-![Additional Vintage character card set: Merchant, Bandit and Guardian](docs/images/vintage-extra-card-set.png)
+![Additional Vintage character card set: Coinpaw, Masktail and Shieldpaw](docs/images/vintage-extra-card-set.png)
 
 | Additional role | Ability |
 | --- | --- |
-| **Merchant** | **Market:** collect up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
-| **Bandit** | **Plunder:** pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only the target can block, by claiming Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
-| **Guardian** | Block Tideclaw’s Steal or Bandit’s Plunder against yourself. The block can be challenged. No special action; does not block assassination. |
+| **Coinpaw** | **Market:** collect up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
+| **Masktail** | **Plunder:** pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only the target can block, by claiming Shieldpaw. A successful block still spends the fee; a caught Masktail bluff refunds it. |
+| **Shieldpaw** | Block Tideclaw’s Steal or Masktail’s Plunder against yourself. The block can be challenged. No special action; does not block assassination. |
 
 Vintage uses **24 cards: three of each of the eight roles**. Both modes start with two influences per player and share a 50-coin treasury. In a two-player game, the starting player begins with 1 coin and the other with 2; otherwise everyone begins with 2 coins.
 
@@ -50,7 +50,7 @@ The original five painted portraits are preserved. The three additional cats use
 
 Your seat sits at the bottom of the circular table. Public coins, remaining influence and the active turn are visible to everyone; your hidden hand is private. Portraits around the table are decorative avatars and do not disclose hidden roles.
 
-**Practice bots** ready automatically, use their own redacted view, make truthful blocks and handle influence/exchange decisions. Their basic strategy uses income, tax, coup and Merchant’s Market when held. They are practice opponents, with no difficulty settings or voice participation.
+**Practice bots** ready automatically, use their own redacted view, make truthful blocks and handle influence/exchange decisions. Their basic strategy uses income, tax, coup and Coinpaw’s Market when held. They are practice opponents, with no difficulty settings or voice participation.
 
 ### Host controls
 

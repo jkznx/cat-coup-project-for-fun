@@ -4,7 +4,7 @@ export type Role = typeof VINTAGE_ROLES[number];
 // Stable rule identifiers keep existing room commands compatible; names are presentation only.
 export const ROLE_NAMES: Record<Role,string> = {
   Duke:'Crownpaw', Assassin:'Shadowpaw', Captain:'Tideclaw', Ambassador:'Whisperpaw', Contessa:'Velvetpaw',
-  Merchant:'Merchant', Bandit:'Bandit', Guardian:'Guardian',
+  Merchant:'Coinpaw', Bandit:'Masktail', Guardian:'Shieldpaw',
 };
 export type Mode = 'classic' | 'vintage';
 export const modeRoles = (mode:Mode): readonly Role[] => mode === 'vintage' ? VINTAGE_ROLES : ROLES;
@@ -18,7 +18,7 @@ export const descriptions:Record<Role,string> = {
   Duke:'Collect 3 coins. Block foreign aid.', Assassin:'Pay 3 coins to remove influence.',
   Captain:'Steal up to 2 coins. Block a steal.', Ambassador:'Draw 2, choose your hand. Block a steal.',
   Contessa:'Block an assassination.', Merchant:'Market: collect 2 coins. Can be challenged, not blocked.',
-  Bandit:'Plunder: pay 1, steal up to 3 coins. Guardian can block.', Guardian:'Block a steal or plunder. No special action.',
+  Bandit:'Plunder: pay 1, steal up to 3 coins. Shieldpaw can block.', Guardian:'Block a steal or plunder. No special action.',
 };
 export function blockRoles(action:Action,mode:Mode='classic'):Role[] {
   return action==='aid'?['Duke']:action==='steal'?['Captain','Ambassador',...(mode==='vintage'?['Guardian' as const]:[])]:action==='assassinate'?['Contessa']:action==='plunder'&&mode==='vintage'?['Guardian']:[];
