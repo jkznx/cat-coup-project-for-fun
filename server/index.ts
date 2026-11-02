@@ -14,6 +14,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
   const app = express(), http = createServer(app);
   const io = new Server(http, { maxHttpBufferSize: 8192 });
   const rooms = new Map<string, Room>();
+  const bindings = new Map<string, {code:string;id:string}>();
   let draining = options.startDrained ?? false;
   const version = options.version || 'local';
   const status = () => ({ draining, version, rooms: rooms.size,
@@ -58,9 +59,9 @@ export function createApp(options: { adminToken?: string; version?: string; star
     scheduleBots(r);
   };
   io.on('connection', (socket: Socket) => {
-    let binding: { code: string; id: string } | undefined;
     let requests = 0, voiceRequests = 0, windowStart = Date.now();
     const member = () => {
+      const binding=bindings.get(socket.id);
       const room = binding && rooms.get(binding.code), seat = room?.seats.find(s => s.id === binding?.id && s.socket === socket.id);
       if (!room || !seat) throw Error('Join a room first.');
       return { room, seat };
@@ -76,7 +77,7 @@ export function createApp(options: { adminToken?: string; version?: string; star
     });
     handle('enter', data => {
       if (draining) throw Error('An update is pending. New seats are temporarily paused.');
-      if (binding) throw Error('Leave your current room first.');
+      if (bindings.has(socket.id)) throw Error('Leave your current room first.');
       if (typeof data.name !== 'string' || !data.name.trim() || data.name.length > 24) throw Error('Choose a name from 1 to 24 characters.');
       const name = data.name.trim();
       let room: Room | undefined;
@@ -93,16 +94,16 @@ export function createApp(options: { adminToken?: string; version?: string; star
       if (room.seats.length >= 6) throw Error('This room is full.');
       const seat: Seat = { id: randomUUID(), name, token: randomBytes(32).toString('hex'), socket: socket.id, ready: false };
       room.seats.push(seat); if (!room.host) room.host = seat.id;
-      binding = { code: room.code, id: seat.id }; room.touched = Date.now(); broadcast(room);
+      bindings.set(socket.id,{code:room.code,id:seat.id}); room.touched = Date.now(); broadcast(room);
       return { code: room.code, token: seat.token, name };
     });
     handle('resume', data => {
-      if (binding) throw Error('Already connected to a room.');
+      if (bindings.has(socket.id)) throw Error('Already connected to a room.');
       const room = typeof data.code === 'string' ? rooms.get(data.code) : undefined;
       const seat = typeof data.token === 'string' && data.token.length === 64 ? room?.seats.find(s => s.token === data.token) : undefined;
       if (!room || !seat) throw Error('Your room session has expired. Create or join another room.');
       if (seat.socket) io.sockets.sockets.get(seat.socket)?.disconnect(true);
-      seat.socket = socket.id; binding = { code: room.code, id: seat.id }; room.touched = Date.now(); broadcast(room);
+      seat.socket = socket.id; bindings.set(socket.id,{code:room.code,id:seat.id}); room.touched = Date.now(); broadcast(room);
     });
     handle('set-mode', data => {
       const {room,seat}=member();
@@ -153,14 +154,22 @@ export function createApp(options: { adminToken?: string; version?: string; star
       if (room.host !== seat.id || room.game?.phase !== 'over') throw Error('Only the host can open a rematch after the game.');
       room.game = undefined; room.seats.forEach(s => { s.ready = !!s.bot; }); room.touched = Date.now(); broadcast(room);
     });
+    handle('close-room', data => {
+      const {room,seat}=member();
+      if(room.host!==seat.id)throw Error('Only the host can close this room.');
+      if(data.confirm!==true)throw Error('Confirm that everyone will leave and game progress will be discarded.');
+      clearTimeout(room.botTimer); rooms.delete(room.code);
+      for(const s of room.seats)if(s.socket){bindings.delete(s.socket);io.to(s.socket).emit('room-closed',{code:room.code});}
+    });
     handle('leave', () => {
       const { room, seat } = member();
       if (room.game && room.game.phase !== 'over') throw Error('A live seat is preserved. Close this tab to disconnect; return to reconnect.');
-      room.seats = room.seats.filter(s => s.id !== seat.id); binding = undefined;
+      room.seats = room.seats.filter(s => s.id !== seat.id); bindings.delete(socket.id);
       if (!room.seats.some(s => !s.bot)) { clearTimeout(room.botTimer); rooms.delete(room.code); }
       else { if (room.host === seat.id) room.host = room.seats.find(s => !s.bot)!.id; room.touched = Date.now(); broadcast(room); }
     });
     socket.on('disconnect', () => {
+      const binding=bindings.get(socket.id);bindings.delete(socket.id);
       if (!binding) return;
       const room = rooms.get(binding.code), seat = room?.seats.find(s => s.id === binding?.id);
       if (seat?.socket === socket.id && room) { seat.socket = undefined; seat.voice = false; room.touched = Date.now(); broadcast(room); }
