@@ -26,3 +26,7 @@ Original output: `exec-08141129-4934-4636-9ded-d495f73a8066.png`; preserved in `
 Delivery SHA256: `129abd985f2b132ddd3f5fe45b1f5bdc68f9d65118ac3936f26d37efae87c3bd`.
 
 Prompt summary: one three-panel sprite, reference style only; matching scale, full ears/headwear, bust portraits, cunning expressions, gouache and fine ink, distinct muted backgrounds; no type, frames, watermark, original-five redraw or flat-vector style. The exact generation prompt is preserved in docs/artwork/vintage-court-source.prompt.txt. The optional scripts/prepare-vintage-artwork.mjs reproduces delivery encoding and refuses to overwrite an existing derivative.
+
+## Character display names
+
+The Classic portraits are now displayed as Crownpaw, Shadowpaw, Tideclaw, Whisperpaw and Velvetpaw, in the same left-to-right order. The source prompt above is preserved as historical provenance; original image bytes are unchanged. Vintage shares these five names and adds Merchant, Bandit and Guardian.

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createGame, command, snapshot, responders, type Game, type Role } from '../server/game.js';
+import {ROLE_NAMES} from '../server/roles.js';
 
 const seats = [{ id: 'a', name: 'Miso' }, { id: 'b', name: 'Mochi' }, { id: 'c', name: 'Bean' }];
 function fixed(roles: Role[][]): Game {
@@ -44,9 +45,16 @@ test('income, aid and tax resolve with exact amounts', () => {
 test('truthful challenge replaces proof card and challenger chooses loss', () => {
   let g=fixed([['Duke','Captain'],['Assassin','Contessa'],['Ambassador','Duke']]);
   g=command(g,'a',{type:'action',action:'tax'}); g=command(g,'b',{type:'challenge'});
+  assert.ok(g.log.some(line=>line.includes('proves Crownpaw')));
   assert.equal(g.loss?.player,'b'); assert.equal(g.players[0].cards.filter(c=>!c.revealed).length,2);
   g=command(g,'b',{type:'lose',card:g.players[1].cards[1].id});
+  assert.ok(g.log.some(line=>line.includes('reveals Velvetpaw')));
   assert.equal(g.players[1].cards[1].revealed,true); assert.equal(g.players[0].coins,5); invariant(g);
+});
+
+test('cat role names are complete and unique while rule identifiers stay compatible', () => {
+  assert.deepEqual(Object.values(ROLE_NAMES), ['Crownpaw','Shadowpaw','Tideclaw','Whisperpaw','Velvetpaw','Merchant','Bandit','Guardian']);
+  assert.equal(new Set(Object.values(ROLE_NAMES)).size, 8);
 });
 test('caught assassination bluff refunds fee', () => {
   let g=fixed([['Duke','Captain'],['Assassin','Contessa'],['Ambassador','Duke']]);

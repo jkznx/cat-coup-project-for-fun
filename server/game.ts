@@ -1,6 +1,6 @@
 import { randomInt, randomUUID } from 'node:crypto';
 
-import {ACTIONS, modeRoles, blockRoles, type Role, type Mode, type Action} from './roles.js';
+import {ACTIONS, ROLE_NAMES, modeRoles, blockRoles, type Role, type Mode, type Action} from './roles.js';
 export {ROLES, ACTIONS, blockRoles} from './roles.js';
 export type {Role, Action, Mode} from './roles.js';
 export interface Card { id: string; role: Role; revealed: boolean }
@@ -88,7 +88,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     if (action.targeted && (!cmd.target || cmd.target === id || !living(player(g, cmd.target)))) throw Error('Choose an active opponent.');
     me.coins -= action.cost; g.treasury += action.cost;
     g.pending = { actor: id, action: cmd.action, target: action.targeted ? cmd.target : undefined }; g.passed = [];
-    note(g, `${me.name} declares ${cmd.action}${action.role ? ` (${action.role})` : ''}${action.targeted ? ` against ${player(g, cmd.target!).name}` : ''}.`);
+    note(g, `${me.name} declares ${cmd.action}${action.role ? ` (${ROLE_NAMES[action.role]})` : ''}${action.targeted ? ` against ${player(g, cmd.target!).name}` : ''}.`);
     if (action.role) g.phase = 'claim'; else if (cmd.action === 'aid') blockStage(g); else resolve(g);
   } else if (cmd.type === 'pass') {
     if (!responders(g).includes(id)) throw Error('No response is needed from you.');
@@ -102,7 +102,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     const p = g.pending;
     if (g.phase !== 'block' || !p || !responders(g).includes(id) || !blockRoles(p.action,g.mode).includes(cmd.role)) throw Error('That block is unavailable.');
     p.blocker = id; p.blockRole = cmd.role; g.phase = 'blockClaim'; g.passed = [];
-    note(g, `${me.name} blocks with a claimed ${cmd.role}.`);
+    note(g, `${me.name} blocks with a claimed ${ROLE_NAMES[cmd.role]}.`);
   } else if (cmd.type === 'challenge') {
     if (!['claim', 'blockClaim'].includes(g.phase) || !responders(g).includes(id)) throw Error('That claim cannot be challenged now.');
     const p = g.pending!, isBlock = g.phase === 'blockClaim';
@@ -110,11 +110,11 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     const role = isBlock ? p.blockRole! : ACTIONS[p.action].role!;
     const card = claimant.cards.find(c => !c.revealed && c.role === role);
     if (card) {
-      note(g, `${me.name} challenges. ${claimant.name} proves ${role} and draws a replacement. ${me.name} loses influence.`);
+      note(g, `${me.name} challenges. ${claimant.name} proves ${ROLE_NAMES[role]} and draws a replacement. ${me.name} loses influence.`);
       const index = claimant.cards.indexOf(card); g.deck.push(card); shuffle(g.deck); claimant.cards[index] = g.deck.pop()!;
       lose(g, me.id, isBlock ? 'finish' : 'block');
     } else {
-      note(g, `${me.name} catches ${claimant.name} bluffing ${role}.`);
+      note(g, `${me.name} catches ${claimant.name} bluffing ${ROLE_NAMES[role]}.`);
       if (!isBlock) { const cost = ACTIONS[p.action].cost; claimant.coins += cost; g.treasury -= cost; }
       lose(g, claimant.id, isBlock ? 'resolve' : 'finish');
     }
@@ -122,7 +122,7 @@ export function command(previous: Game, id: string, cmd: Command): Game {
     if (g.phase !== 'loss' || g.loss?.player !== id) throw Error('You do not need to reveal a card.');
     const card = me.cards.find(c => c.id === cmd.card && !c.revealed);
     if (!card) throw Error('Choose one of your hidden cards.');
-    card.revealed = true; note(g, `${me.name} reveals ${card.role}.`);
+    card.revealed = true; note(g, `${me.name} reveals ${ROLE_NAMES[card.role]}.`);
     if (!living(me)) { g.treasury += me.coins; me.coins = 0; note(g, `${me.name} is out of the court.`); }
     proceed(g, g.loss.next);
   } else if (cmd.type === 'exchange') {

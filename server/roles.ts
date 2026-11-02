@@ -1,6 +1,11 @@
 export const ROLES = ['Duke', 'Assassin', 'Captain', 'Ambassador', 'Contessa'] as const;
 export const VINTAGE_ROLES = [...ROLES, 'Merchant', 'Bandit', 'Guardian'] as const;
 export type Role = typeof VINTAGE_ROLES[number];
+// Stable rule identifiers keep existing room commands compatible; names are presentation only.
+export const ROLE_NAMES: Record<Role,string> = {
+  Duke:'Crownpaw', Assassin:'Shadowpaw', Captain:'Tideclaw', Ambassador:'Whisperpaw', Contessa:'Velvetpaw',
+  Merchant:'Merchant', Bandit:'Bandit', Guardian:'Guardian',
+};
 export type Mode = 'classic' | 'vintage';
 export const modeRoles = (mode:Mode): readonly Role[] => mode === 'vintage' ? VINTAGE_ROLES : ROLES;
 export type Action = 'income' | 'aid' | 'tax' | 'steal' | 'assassinate' | 'exchange' | 'coup' | 'market' | 'plunder';

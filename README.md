@@ -10,15 +10,17 @@ An online, cat-themed fan adaptation of **Coup** for **2–6 seats**, with priva
 
 ### Classic — the original five
 
-![Classic character card set: Duke, Assassin, Captain, Ambassador and Contessa](docs/images/classic-card-set.png)
+![Classic character card set: Crownpaw, Shadowpaw, Tideclaw, Whisperpaw and Velvetpaw](docs/images/classic-card-set.png)
 
 | Role | Action | Block |
 | --- | --- | --- |
-| **Duke** | **Tax:** collect up to 3 coins from the treasury. | Foreign aid. |
-| **Assassin** | **Assassinate:** pay 3 coins to make a target lose one influence. | — |
-| **Captain** | **Steal:** take up to 2 available coins from one opponent. | Steal against yourself. |
-| **Ambassador** | **Exchange:** draw 2 cards, choose your hidden hand and return the rest. | Steal against yourself. |
-| **Contessa** | — | Assassination against yourself. |
+| **Crownpaw** | **Tax:** collect up to 3 coins from the treasury. | Foreign aid. |
+| **Shadowpaw** | **Assassinate:** pay 3 coins to make a target lose one influence. | — |
+| **Tideclaw** | **Steal:** take up to 2 available coins from one opponent. | Steal against yourself. |
+| **Whisperpaw** | **Exchange:** draw 2 cards, choose your hidden hand and return the rest. | Steal against yourself. |
+| **Velvetpaw** | — | Assassination against yourself. |
+
+These are Cat Coup’s own character display names; the five-role rules are unchanged. Renaming characters is not a legal clearance or a change to the credits below.
 
 Classic uses **15 cards: three of each role**. Role claims and blocks can be challenged. Income, foreign aid and coup are also available; coup costs 7 coins and becomes mandatory when you hold 10 or more coins.
 
@@ -30,7 +32,7 @@ Classic uses **15 cards: three of each role**. Role claims and blocks can be cha
 | --- | --- |
 | **Merchant** | **Market:** collect up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
 | **Bandit** | **Plunder:** pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only the target can block, by claiming Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
-| **Guardian** | Block Captain’s Steal or Bandit’s Plunder against yourself. The block can be challenged. No special action; does not block assassination. |
+| **Guardian** | Block Tideclaw’s Steal or Bandit’s Plunder against yourself. The block can be challenged. No special action; does not block assassination. |
 
 Vintage uses **24 cards: three of each of the eight roles**. Both modes start with two influences per player and share a 50-coin treasury. In a two-player game, the starting player begins with 1 coin and the other with 2; otherwise everyone begins with 2 coins.
 
@@ -109,7 +111,7 @@ The public deployment uses a Windows Node process behind Cloudflare Tunnel. Dock
 
 ## Verification and limits
 
-The current rule/socket suite contains **24 tests**, covering complete games, card/coin conservation, private views, mode-specific actions, readiness, reconnects and host-only room closure. Browser scripts cover responsive layouts, private hands, mode selection, synthetic two-peer voice and closing a room with microphone cleanup.
+The current rule/socket suite contains **25 tests**, covering complete games, card/coin conservation, private views, mode-specific actions, readiness, reconnects and host-only room closure. Browser scripts cover responsive layouts, private hands, mode selection, synthetic two-peer voice and closing a room with microphone cleanup.
 
 Browser checks require a separately installed Playwright package and Edge. Set `PLAYWRIGHT_MODULE` to that package path and `BROWSER_CHANNEL=msedge` when needed. Each script specifies its isolated test-server port; review it before running. Voice tests use synthetic microphones, never a real device. Local synthetic WebRTC checks do not establish compatibility with every Internet connection.
 
