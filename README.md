@@ -1,10 +1,72 @@
-# Cat Coup
+# Cat Coup 🐾
 
-A cat-themed multiplayer adaptation of Coup for 2–6 friends. Create a room, share its six-character code, ready up, and bluff your way to the last hidden influence. Original illustrated cats inhabit the Midnight Cat Lounge: dark blue, warm gold, and a private hand for each player.
+**A little charm. A bold bluff. One cat left standing.**
 
-## Run
+An online, cat-themed fan adaptation of **Coup** for **2–6 seats**, with private room codes, practice bots, a circular table and optional push-to-talk voice. Play the five-role Classic court or try Vintage, an original eight-role house variant.
 
-Requirements: Node.js 24.22.1 and pnpm 11.25.0 (the tested deployment versions). From this directory:
+[Play Cat Coup](https://cat-coup.jukrachai-crybaby.space/) · [Run locally](#run-locally) · [Character cards](#the-character-cards) · [Deployment guide](DEPLOYMENT.md)
+
+## The character cards
+
+### Classic — the original five
+
+![Classic character card set: Duke, Assassin, Captain, Ambassador and Contessa](docs/images/classic-card-set.png)
+
+| Role | Action | Block |
+| --- | --- | --- |
+| **Duke** | **Tax:** collect up to 3 coins from the treasury. | Foreign aid. |
+| **Assassin** | **Assassinate:** pay 3 coins to make a target lose one influence. | — |
+| **Captain** | **Steal:** take up to 2 available coins from one opponent. | Steal against yourself. |
+| **Ambassador** | **Exchange:** draw 2 cards, choose your hidden hand and return the rest. | Steal against yourself. |
+| **Contessa** | — | Assassination against yourself. |
+
+Classic uses **15 cards: three of each role**. Role claims and blocks can be challenged. Income, foreign aid and coup are also available; coup costs 7 coins and becomes mandatory when you hold 10 or more coins.
+
+### Vintage — all five Classic roles, plus three new cats
+
+![Additional Vintage character card set: Merchant, Bandit and Guardian](docs/images/vintage-extra-card-set.png)
+
+| Additional role | Ability |
+| --- | --- |
+| **Merchant** | **Market:** collect up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
+| **Bandit** | **Plunder:** pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only the target can block, by claiming Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
+| **Guardian** | Block Captain’s Steal or Bandit’s Plunder against yourself. The block can be challenged. No special action; does not block assassination. |
+
+Vintage uses **24 cards: three of each of the eight roles**. Both modes start with two influences per player and share a 50-coin treasury. In a two-player game, the starting player begins with 1 coin and the other with 2; otherwise everyone begins with 2 coins.
+
+**Vintage is an original house variant, not an official Coup expansion.** Its larger deck changes role probabilities, and competitive balance has not been established. The host chooses the mode in the lobby; changing it clears human readiness. Mode stays fixed during a game and carries into the rematch lobby.
+
+The original five painted portraits are preserved. The three additional cats use matching storybook artwork. See [artwork provenance](public/assets/PROVENANCE.md). These sheets reuse the game’s delivered portraits; they are documentation images, not additional game downloads.
+
+## Pull up a chair
+
+1. Open [the game](https://cat-coup.jukrachai-crybaby.space/), choose a nickname and **Create a room**.
+2. Share the invite link or six-character room code. Friends must connect to the same server.
+3. Choose **Classic** or **Vintage**. The host can add practice bots, up to six total seats.
+4. Everyone readies up; the host deals. Take actions, challenge claims and protect your hidden influences.
+5. The last player with influence wins. Open a rematch lobby to play again.
+
+Your seat sits at the bottom of the circular table. Public coins, remaining influence and the active turn are visible to everyone; your hidden hand is private. Portraits around the table are decorative avatars and do not disclose hidden roles.
+
+**Practice bots** ready automatically, use their own redacted view, make truthful blocks and handle influence/exchange decisions. Their basic strategy uses income, tax, coup and Merchant’s Market when held. They are practice opponents, with no difficulty settings or voice participation.
+
+### Host controls
+
+The host can select **Close room** in the lobby or **End game & close room** during play. A confirmation dialog warns that everyone returns home and progress is discarded. Cancel keeps the room intact.
+
+Closure works even if a disconnected player has paused the table or the host has been eliminated. The server removes only that room, cancels its bot timer and invalidates its code and session tokens. Connected clients clear their saved seat and release room voice. Closing a room does not award a winner.
+
+### Hold T to talk
+
+Select **Enable voice**, allow microphone access, then **hold T** to speak and release it to mute. On touchscreens, hold the microphone button. Typing in an input does not transmit; switching windows or hiding the page mutes. Disabling voice, disconnecting or leaving/closing a room stops microphone capture.
+
+Voice is opt-in **WebRTC peer-to-peer audio**. Socket.IO carries room-scoped signaling; the Node server does not record or relay audio. HTTPS or localhost, browser permission and a compatible microphone are required. Peer connections can expose network addresses to other participants.
+
+Only STUN is configured by default; **there is no TURN relay**. Voice can fail on restrictive networks. Cloudflare Tunnel carries the website and game connection, not WebRTC audio.
+
+## Run locally
+
+Tested with **Node.js 24.22.1** and **pnpm 11.25.0**.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -12,82 +74,58 @@ pnpm build
 pnpm start
 ```
 
-Open http://127.0.0.1:3001. For a second local player, use another browser profile or a private window. The same tab restores its seat on refresh. For development, `pnpm dev` runs Vite on port 5173 and the game server on port 3001.
-
-## Play with friends
-
-The game supports separate clients over Socket.IO. The default address listens only on this computer. To serve on a trusted local network, set `HOST=0.0.0.0` before `pnpm start`, allow your chosen port in the host firewall, and share `http://<host-LAN-IP>:3001`. All players must reach that same server; a room code alone does not connect separate local servers.
-
-The public hostname is https://cat-coup.jukrachai-crybaby.space through the Windows Cloudflared service. Use one server instance. `PORT` defaults to 3001. See [DEPLOYMENT.md](DEPLOYMENT.md) for container migration, CI, explicit release promotion, drain and rollback. The existing Node server is not automatically replaced by installing these files.
-
-## Included
-
-Test bots: the room host can select **Add test bot** or **Remove a bot** before dealing. A room still has a maximum of six seats, including bots. Bots are ready automatically; the human host must ready up and deal. They use their own redacted view, take income/tax and coup, accept claims and make truthful blocks, and automatically reveal influence when required. They are basic practice opponents, not a difficulty-tuned AI. Living disconnected humans pause the bots too. Bots remain ready for a rematch and never become host.
-
-- Room creation/joining, ready lobby, host-controlled deal, invite link, rematch.
-- Income, foreign aid, coup, tax, assassination, steal, exchange, challenge and block decisions.
-- Server-controlled legal moves, coin costs, card replacement, influence loss, elimination and victory.
-- Player-specific snapshots that exclude opponents’ hidden roles, card identifiers and the deck.
-- Private session credential, refresh/reconnection, stale-command rejection, bounded event payloads and per-connection request rate limits.
-- Original five-character artwork, responsive desktop/phone UI, keyboard focus, in-game help and reduced-motion support.
-
-## Operational limits
-
-Rooms live in memory and disappear when the server restarts. An offline living player pauses the table until they return; there is no timeout or bot takeover. Preserve the original browser tab/session to reconnect. A disconnected lobby seat also remains reserved; its owner can reconnect and leave. The host must return to start or open a rematch. Idle lobbies and completed games with everyone offline expire after six hours. Unfinished games are retained and block deployment, even when everyone disconnects. This release has no accounts, durable storage, matchmaking or spectator entry.
-
-When a claim is challenged, the server automatically proves it if the claimant has that hidden role; voluntary concession despite holding the role is not offered. Base-game mechanics are included; expansion factions are outside this version.
-
-## Verification
-
-Performance: `pnpm perf:budget` checks built asset budgets after a build. See [PERF.md](PERF.md) for the measured lossless artwork optimization and the next bounded measurement loops.
+Open [localhost:3001](http://127.0.0.1:3001). Use another browser profile or private window for a second local player. Refreshing the original tab restores its seat while the room exists.
 
 ```sh
-pnpm test
-pnpm build
+pnpm dev          # Vite on 5173; game server on 3001
+pnpm test         # Rule and Socket.IO tests
+pnpm build        # Type-check and build client/server
+pnpm perf:budget  # Check built JS, CSS and artwork budgets
 ```
 
-Twenty-two automated tests cover rules and the Socket.IO boundary, including complete 2–6 player games, card/coin conservation, assassination edge cases, private hands, readiness, turn validation and reconnection. The browser walkthrough covers 1440×1000 and 390×844 layouts, create/join/ready/deal, income, tax, refresh, hand visibility and the rules dialog. To rerun it, install Playwright separately, make Edge available, start the production server, and run `node tests/browser-check.mjs`. Alternatively set `PLAYWRIGHT_MODULE` to an installed Playwright package path. Review captures/results are local files under `.impeccable/review/` and are ignored by Git.
+The server defaults to `HOST=127.0.0.1` and `PORT=3001`. For a trusted LAN, set `HOST=0.0.0.0`, allow the port in the host firewall and share `http://<host-LAN-IP>:3001`. A room code does not connect independent server instances. Remote microphone access requires HTTPS.
 
-## Source and credits
+## How it works
 
-Game design: Rikki Tahta / La Mame Games. Rules reference: [Coup rulebook](https://www.qugs.org/rules/r131357.pdf). This independent fan prototype uses original cat artwork and interface text. The original game’s illustrations and branding are not included. Artwork provenance is recorded in `public/assets/PROVENANCE.md`.
+```mermaid
+flowchart LR
+  A[React browser clients] <-->|Socket.IO: actions and private snapshots| B[Node / Express game server]
+  B --> C[Authoritative rules and shared role catalogue]
+  B --> D[In-memory rooms and bot scheduling]
+  A <-.->|Opt-in WebRTC audio| E[Other room participants]
+```
 
-Source layout: `server/game.ts` holds the rules and redacted views; `server/index.ts` handles rooms and sockets; `src/main.tsx` is the React UI; `src/style.css` owns the visual system.
+The public deployment uses a Windows Node process behind Cloudflare Tunnel. Docker/Compose and CI/release tooling are included for deployment preparation; **Docker migration is paused**, and the repository does not imply automatic production promotion. See [DEPLOYMENT.md](DEPLOYMENT.md) for release, drain and rollback procedures. Keep tunnel credentials and environment secrets outside Git.
 
-## Circular table and room voice
-
-Players sit around a circular table, with your seat at the bottom. The table shows public coins, remaining influence and the current turn; your private hand remains below it.
-
-Select **Enable voice** and allow microphone access to join room voice. Hold **T** to talk and release it to mute. On a touchscreen, hold the microphone button instead. Leaving the page, switching windows or disabling voice mutes/stops capture. Typing T in an input does not transmit. Every human must opt in; bots do not join voice.
-
-Voice uses WebRTC between room participants; Socket.IO forwards bounded signaling only within the same room. Audio is not recorded by this app or relayed through its Node server. Use headphones to reduce feedback. Voice needs HTTPS (or localhost), microphone permission and a compatible browser. Peer connections can expose network addresses to other room participants. The default uses Cloudflare STUN only; restrictive NAT/firewall networks may need a separately configured TURN relay. The Cloudflare Tunnel serving the game does not itself relay WebRTC audio.
-
-Verification: 22 automated rule/socket tests, production build and asset budgets pass. `tests/table-voice-browser.mjs` verifies two real local WebRTC peers using synthetic microphones, audio packet reception, T and pointer hold/release, blur muting, input typing isolation, device release and six-seat layouts at 320/390/768/1024/1440 px. Run against an isolated localhost server on port 3106 with Playwright and Edge (`PLAYWRIGHT_MODULE` and `BROWSER_CHANNEL=msedge`). This validates local synthetic voice, not every Internet network combination.
-
-## Game modes
-
-The lobby host selects **Classic** (default) or **Vintage** before dealing. Changing mode clears human readiness so everyone can review the rules; bots stay ready. Mode is frozen during a game and retained when opening a rematch lobby.
-
-- **Classic:** Duke, Assassin, Captain, Ambassador, Contessa. Three of each role (15 cards), seven actions.
-- **Vintage:** the Classic five plus Merchant, Bandit and Guardian. Three of each role (24 cards), nine actions. Two starting influences, 50 total coins, the two-player starting-coin rule and the mandatory coup at 10 coins are unchanged.
-
-| Additional Vintage role | Ability |
+| Location | Responsibility |
 | --- | --- |
-| Merchant | Market: take up to 2 coins from the treasury. The claim can be challenged; the action cannot be blocked. |
-| Bandit | Plunder: pay 1 coin to the treasury, then steal up to 3 available coins from one opponent. Only that target can block with Guardian. A successful block still spends the fee; a caught Bandit bluff refunds it. |
-| Guardian | Block Captain's Steal or Bandit's Plunder against yourself. The block can be challenged. Guardian does not block assassination. |
+| `server/game.ts` | Rules, state transitions and player-specific views. |
+| `server/roles.ts` | Shared roles, actions and block permissions. |
+| `server/index.ts` | Rooms, socket authorization, reconnection and bots. |
+| `src/main.tsx` | Lobby, table, hands and player controls. |
+| `src/Portrait.tsx` | Uniform portrait scaling and sprite-panel isolation. |
+| `src/spacing.css` | Shared 4, 8, 16, 24, 32, 40 and 48px spacing tokens. |
+| `tests/` | Rule/socket tests and browser verification scripts. |
 
-Vintage is an original Cat Coup house variant, not an official Coup expansion. The larger deck changes role probabilities; competitive balance has not been established. New characters use original painted cat illustrations matching the five original portraits. Rules and block permissions live in `server/roles.ts`; both server and UI use the same catalogue. Bots handle mode-specific blocks and use Merchant when held, but retain their basic practice strategy.
+## Verification and limits
 
-`tests/modes.test.ts` verifies mode isolation, 15/24-card conservation, treasury limits, paid theft/refunds, truthful Guardian challenges, private exchanges, full Vintage bot games and lobby authorization/readiness. `tests/modes-browser.mjs` checks mode selection, eight-role help, action visibility, new portraits and mobile layouts against an isolated localhost server.
+The current rule/socket suite contains **24 tests**, covering complete games, card/coin conservation, private views, mode-specific actions, readiness, reconnects and host-only room closure. Browser scripts cover responsive layouts, private hands, mode selection, synthetic two-peer voice and closing a room with microphone cleanup.
 
+Browser checks require a separately installed Playwright package and Edge. Set `PLAYWRIGHT_MODULE` to that package path and `BROWSER_CHANNEL=msedge` when needed. Each script specifies its isolated test-server port; review it before running. Voice tests use synthetic microphones, never a real device. Local synthetic WebRTC checks do not establish compatibility with every Internet connection.
 
-## Vintage storybook theme
+Built asset budgets are checked by `pnpm perf:budget`. See [PERF.md](PERF.md), the [public loading audit](docs/performance/2026-10-28-public.md) and [card/spacing verification](docs/design/card-spacing-implementation-2026-10-28.md) for measurements and their limitations. Portraits crop uniformly rather than stretch, and paired hands support viewports down to 320px.
 
-Vintage rooms use a warm paper/ink skin with self-hosted Bree Serif headings, burgundy actions, teal voice controls and a wooden round table. Classic retains the Midnight Cat Lounge skin. The original five portraits remain byte-for-byte unchanged; Merchant, Bandit and Guardian use a separately generated painted sprite. See public/assets/PROVENANCE.md for origin and delivery details. The three new portraits add 199,714 bytes; their delivery budget is 250KB, separate from the unchanged Classic artwork cap. Mobile Vintage hands keep two cards side-by-side. Keyboard focus, disabled/selected/revealed states and hold-to-talk are retained.
+Known limits:
 
-## Card fit and spacing
+- **Rooms are stored in memory. Restarting the server clears them.** There are no accounts, database persistence, public matchmaking or spectator seats.
+- A disconnected living human pauses play and bots until they return. There is no timeout or bot takeover; the host may explicitly close the room.
+- Reconnection depends on the original browser session. Offline lobby seats remain reserved until their owners return and leave, the host closes the room, or the room expires.
+- All-offline idle lobbies and finished games expire after six hours. Unfinished games remain until explicitly closed or the server restarts; release draining treats them as active.
+- A challenged claimant automatically proves the role if they hold it. Voluntary concession while holding that role is not offered.
+- Vintage balance and voice across restrictive NAT/firewall environments remain unverified.
 
-The shared `src/Portrait.tsx` isolates sprite panels with an SVG viewBox and `xMidYMin slice`. Images scale uniformly and crop rather than stretch; the original files and bytes are unchanged. Both modes have responsive paired hands down to 320px. Homepage role names live in a readable wrapping legend rather than clipped fan captions.
+## Credits
 
-`src/spacing.css` defines the confirmed scale: **4, 8, 16, 24, 32, 40, 48px**. Main margin, padding and gap declarations use these tokens. Borders, font sizes, automatic centering, fluid widths and deliberate table/fan geometry are separate concerns. `scripts/card-layout-audit.mjs` measures 29 viewport/surface combinations and checks uniform SVG transforms, paired cards, overflow and fixed spacing values.
+Original game design: **Rikki Tahta / La Mame Games**. Rules reference: [Coup rulebook](https://www.qugs.org/rules/r131357.pdf).
+
+Cat Coup is an independent fan prototype with original cat illustrations and interface text. It does not include the original game’s illustrations or branding. [Artwork sources and preparation](public/assets/PROVENANCE.md) document the delivered assets.
